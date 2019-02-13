@@ -1,14 +1,50 @@
-import React from 'react';
+import React, { Component } from 'react';
 import '../../index.scss';
 import PropTypes from 'prop-types';
 
-const Display = (props) => {
+class Display extends Component {
 
-return(
-  <div>
-    <p>This is the Display Add a Switch</p>
-  </div>
-  )
+
+  render() {
+    let url
+    let btnName
+    let information
+
+    console.log(this.props.type)
+
+    switch (this.props.type) {
+      case 'profile' : 
+        url = 'url to get profile'
+        // this.props.fetchProfile(url)
+        btnName = 'Update Profile'
+        information = 'render Profile info on Card component, assign a key'
+
+      case 'appointments' : 
+        url = 'url for get all appointments'
+        // this.props.fetchAppointments(url)
+        btnName = 'Add Appointment'
+        information = 'map over Appointment and return Card component, spread in return info and assign a key'
+
+      case 'providers' : 
+        url = 'url for get all providers'
+        // this.props.fetchProviders(url)
+        btnName = 'Add Provider'
+        information = 'map over providers and return Card component, spread in return info and assign a key'
+
+      case 'insurance' : 
+        url = 'url for get all insurance'
+        // this.props.fetchInsurance(url)
+        btnName = 'Add Insurance'
+        information = 'map over insurance and return Card component, spread in return info and assign a key'
+      
+      return(
+        <div>
+          <button> { btnName } </button>
+          <div> { information } </div>
+        </div>
+      )
+    }
+  }
 }
 
 Display.propTypes = {
