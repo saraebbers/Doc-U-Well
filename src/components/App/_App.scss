@@ -2,6 +2,27 @@
   background-color: #314A4f;
   color: #fdf2ea;
   height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+  grid-template-rows: 1fr 6fr 1fr;
 }
 
+.header-container{
+  background-color: #9ec65d;
+}
 
+.nav-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  text-align: center
+}
+
+.fas{
+  color: black;
+}
+
+.far{
+  color: black;
+}

@@ -7,7 +7,10 @@ class Home extends Component {
 
   render() {
     return(
-      <div>This is the Home Component</div>
+      <div className="home-container">
+        <div className="welcome-message">
+        </div>
+      </div>
     )
   }
 }
