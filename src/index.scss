@@ -1,8 +1,8 @@
 @import './components/App/App';
 @import './components/Schedule/Schedule';
 @import './containers/Card/Card';
-@import './containers/Display/Display';
-@import './containers/Navigation/Navigation';
+@import './components/Display/Display';
+@import './containers/Home/Home';
 
 html {
   box-sizing: border-box;
@@ -10,4 +10,6 @@ html {
 
 *, *:before, *:after {
   box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
