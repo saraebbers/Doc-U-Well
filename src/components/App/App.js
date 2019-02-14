@@ -42,25 +42,25 @@ class App extends Component {
         <nav className='nav-container'>
           <NavLink to='/profile' className='navigation'>
             <div>
-              <i className="fas fa-user-circle"></i>
+              <i className="fas fa-user-circle navigation"></i>
               <p>Profile</p>
             </div>
           </NavLink>
           <NavLink to='/appointments' className='navigation'>
             <div>
-              <i className="far fa-calendar-alt"></i>
+              <i className="far fa-calendar-alt navigation"></i>
               <p>Appointments</p>
             </div>
           </NavLink>
           <NavLink to='/providers' className='navigation'>
             <div>
-              <i className="fas fa-user-md"></i>
+              <i className="fas fa-user-md navigation"></i>
               <p>Providers</p>
             </div>
           </NavLink>
           <NavLink to='/insurance' className='navigation'>
             <div>
-              <i className="far fa-address-card"></i>
+              <i className="far fa-address-card navigation"></i>
               <p>Insurance</p>
               </div>
           </NavLink>

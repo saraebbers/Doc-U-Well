@@ -1,6 +1,10 @@
+.link-header{
+  color: #301E0A;
+  text-decoration: none;
+}
+
 .main-container {
   background-color: #314A4f;
-  color: #fdf2ea;
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
@@ -11,18 +15,44 @@
 
 .header-container{
   background-color: #9ec65d;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
 }
 
-.nav-container{
+.navigation {
+  color: #fdf2ea;
+  padding: 10px;
+  text-decoration: none;
+  height: 100%;
+  width: 100%;
+
+  &:hover {
+    background-color: #9ec65d;
+  }
+
+  &.active {
+    background-color: #fdf2ea;
+    color: green;
+  }
+}
+
+.nav-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  text-align: center
+  text-align: center;
+  font-size: .75rem;
+  width: 100%;
+  height: 100%;
 }
 
 .fas{
-  color: black;
+  font-size: 1rem;
 }
 
 .far{
-  color: black;
+  font-size: 1rem;
 }
