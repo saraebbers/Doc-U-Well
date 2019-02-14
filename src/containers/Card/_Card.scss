@@ -1,0 +1,25 @@
+.card-container {
+  padding: 10px;
+  margin: 15px;
+  background-color: #768fa0;
+  box-shadow: 1px 1px 6px 1px gray;
+  color: #fdf2ea;
+  position: relative;
+}
+
+.fa-trash-alt {
+  position: absolute;
+  right: 40px;
+  top: 10px;
+}
+
+.fa-edit {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.image-holder {
+  background-color: #C4C4C4;
+  opacity: .5;
+}
