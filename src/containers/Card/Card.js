@@ -5,13 +5,51 @@ import PropTypes from 'prop-types';
 class Card extends Component {
 
   render() {
-    const { name } = this.props 
+    console.log(this.props)
 
+    switch (this.props.type) {
+      case 'profile' :
+        const { blood, height, weight, bps, bpd, hr } = this.props
+        return(
+          <div className='card-container'>
+            <i className="fas fa-edit"></i>
+            <h3>General Information</h3>
+            <p>Blood type: { blood } </p>
+            <p>Height: { height } </p>
+            <p>Weight: { weight } lbs</p>
+            <p>BloodPressure: { bps } / { bpd } </p>
+            <p>Heart Rate: { hr } bpm</p>
+            <p>Last Updated: can we get this?</p>
+          </div>
+        )
+      case 'appointments' :
+        const { date, time, reason, provider, location } = this.props
+        return(
+          <div className='card-container'>
+            <i className="fas fa-trash-alt"></i>
+            <i className="fas fa-edit"></i>
+            <h3>Appointment Information</h3>
+            <p>{ date } </p>
+            <p>{ time } </p>
+            <p>{ reason } with { provider }</p>
+            <p>{ location } </p>
+          </div>
+        )
+      case 'providers' :
+        // const { } = this.props
+        return(
+          <div></div>
 
+        )
+      case 'insurance' :
+        // const { } = this.props
+        return(
+          <div></div>
+        )
+      default:
+        return ('hit card default')
+    }
 
-    return (
-      <div>{name}</div>
-    )
 
   }
 }

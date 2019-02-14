@@ -1,7 +1,6 @@
 .display-container {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 5fr;
   justify-items: center;
   align-items: start; 
   width: 100%;
@@ -10,7 +9,7 @@
 }
 
 .add-btn {
-  margin: 10px;
+  margin-top: 10px;
   padding: 10px;
   width: 60%;
   border-radius: 10px;
@@ -26,10 +25,11 @@
 }
 
 .card-area {
-  margin: 10px;
+  margin-bottom: 10px;
   padding: 10px;
   overflow: auto;
   width: 95%;
+  height: 100%;
 }
 
 .fa-plus-square {
