@@ -64,7 +64,7 @@ class App extends Component {
               <p>Insurance</p>
               </div>
           </NavLink>
-          </nav>
+        </nav>
       </section>
     );
   }

@@ -5,12 +5,12 @@
 
 .main-container {
   background-color: #314A4f;
-  height: 100vh;
+  min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
   justify-items: center;
   align-items: center;
-  grid-template-rows: 1fr 6fr 1fr;
+  grid-template-rows: 100px 1fr 100px;
 }
 
 .header-container {
@@ -30,6 +30,7 @@
   grid-template-columns: 1fr;
   justify-items: center;
   align-items: center;
+  overflow: scroll;
 }
 
 .navigation {
