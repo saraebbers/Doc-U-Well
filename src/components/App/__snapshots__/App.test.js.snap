@@ -1,0 +1,1256 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Component should match the screenshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <App />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <header
+          className="header-container"
+        >
+          <Link
+            className="link-header"
+            replace={false}
+            to="/"
+          >
+            <h1>
+              My Health Navigator
+            </h1>
+          </Link>
+        </header>,
+        <Switch
+          className="middle-container"
+        >
+          <Route
+            component={[Function]}
+            exact={true}
+            path="/"
+          />
+          <Route
+            exact={true}
+            path="/profile"
+            render={[Function]}
+          />
+          <Route
+            exact={true}
+            path="/appointments"
+            render={[Function]}
+          />
+          <Route
+            exact={true}
+            path="/providers"
+            render={[Function]}
+          />
+          <Route
+            exact={true}
+            path="/insurance"
+            render={[Function]}
+          />
+          <Route
+            render={[Function]}
+          />
+        </Switch>,
+        <nav
+          className="nav-container"
+        >
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="navigation"
+            to="/profile"
+          >
+            <div>
+              <i
+                className="fas fa-user-circle navigation"
+              />
+              <p>
+                Profile
+              </p>
+            </div>
+          </NavLink>
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="navigation"
+            to="/appointments"
+          >
+            <div>
+              <i
+                className="far fa-calendar-alt navigation"
+              />
+              <p>
+                Appointments
+              </p>
+            </div>
+          </NavLink>
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="navigation"
+            to="/providers"
+          >
+            <div>
+              <i
+                className="fas fa-user-md navigation"
+              />
+              <p>
+                Providers
+              </p>
+            </div>
+          </NavLink>
+          <NavLink
+            activeClassName="active"
+            aria-current="page"
+            className="navigation"
+            to="/insurance"
+          >
+            <div>
+              <i
+                className="far fa-address-card navigation"
+              />
+              <p>
+                Insurance
+              </p>
+            </div>
+          </NavLink>
+        </nav>,
+      ],
+      "className": "main-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <Link
+            className="link-header"
+            replace={false}
+            to="/"
+          >
+            <h1>
+              My Health Navigator
+            </h1>
+          </Link>,
+          "className": "header-container",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <h1>
+              My Health Navigator
+            </h1>,
+            "className": "link-header",
+            "replace": false,
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "My Health Navigator",
+            },
+            "ref": null,
+            "rendered": "My Health Navigator",
+            "type": "h1",
+          },
+          "type": [Function],
+        },
+        "type": "header",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <Route
+              component={[Function]}
+              exact={true}
+              path="/"
+            />,
+            <Route
+              exact={true}
+              path="/profile"
+              render={[Function]}
+            />,
+            <Route
+              exact={true}
+              path="/appointments"
+              render={[Function]}
+            />,
+            <Route
+              exact={true}
+              path="/providers"
+              render={[Function]}
+            />,
+            <Route
+              exact={true}
+              path="/insurance"
+              render={[Function]}
+            />,
+            <Route
+              render={[Function]}
+            />,
+          ],
+          "className": "middle-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "component": [Function],
+              "exact": true,
+              "path": "/",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "exact": true,
+              "path": "/profile",
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "exact": true,
+              "path": "/appointments",
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "exact": true,
+              "path": "/providers",
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "exact": true,
+              "path": "/insurance",
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "render": [Function],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="navigation"
+              to="/profile"
+            >
+              <div>
+                <i
+                  className="fas fa-user-circle navigation"
+                />
+                <p>
+                  Profile
+                </p>
+              </div>
+            </NavLink>,
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="navigation"
+              to="/appointments"
+            >
+              <div>
+                <i
+                  className="far fa-calendar-alt navigation"
+                />
+                <p>
+                  Appointments
+                </p>
+              </div>
+            </NavLink>,
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="navigation"
+              to="/providers"
+            >
+              <div>
+                <i
+                  className="fas fa-user-md navigation"
+                />
+                <p>
+                  Providers
+                </p>
+              </div>
+            </NavLink>,
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="navigation"
+              to="/insurance"
+            >
+              <div>
+                <i
+                  className="far fa-address-card navigation"
+                />
+                <p>
+                  Insurance
+                </p>
+              </div>
+            </NavLink>,
+          ],
+          "className": "nav-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": <div>
+                <i
+                  className="fas fa-user-circle navigation"
+                />
+                <p>
+                  Profile
+                </p>
+              </div>,
+              "className": "navigation",
+              "to": "/profile",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <i
+                    className="fas fa-user-circle navigation"
+                  />,
+                  <p>
+                    Profile
+                  </p>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "fas fa-user-circle navigation",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "i",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Profile",
+                  },
+                  "ref": null,
+                  "rendered": "Profile",
+                  "type": "p",
+                },
+              ],
+              "type": "div",
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": <div>
+                <i
+                  className="far fa-calendar-alt navigation"
+                />
+                <p>
+                  Appointments
+                </p>
+              </div>,
+              "className": "navigation",
+              "to": "/appointments",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <i
+                    className="far fa-calendar-alt navigation"
+                  />,
+                  <p>
+                    Appointments
+                  </p>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "far fa-calendar-alt navigation",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "i",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Appointments",
+                  },
+                  "ref": null,
+                  "rendered": "Appointments",
+                  "type": "p",
+                },
+              ],
+              "type": "div",
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": <div>
+                <i
+                  className="fas fa-user-md navigation"
+                />
+                <p>
+                  Providers
+                </p>
+              </div>,
+              "className": "navigation",
+              "to": "/providers",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <i
+                    className="fas fa-user-md navigation"
+                  />,
+                  <p>
+                    Providers
+                  </p>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "fas fa-user-md navigation",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "i",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Providers",
+                  },
+                  "ref": null,
+                  "rendered": "Providers",
+                  "type": "p",
+                },
+              ],
+              "type": "div",
+            },
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "aria-current": "page",
+              "children": <div>
+                <i
+                  className="far fa-address-card navigation"
+                />
+                <p>
+                  Insurance
+                </p>
+              </div>,
+              "className": "navigation",
+              "to": "/insurance",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <i
+                    className="far fa-address-card navigation"
+                  />,
+                  <p>
+                    Insurance
+                  </p>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "far fa-address-card navigation",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "i",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Insurance",
+                  },
+                  "ref": null,
+                  "rendered": "Insurance",
+                  "type": "p",
+                },
+              ],
+              "type": "div",
+            },
+            "type": [Function],
+          },
+        ],
+        "type": "nav",
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <header
+            className="header-container"
+          >
+            <Link
+              className="link-header"
+              replace={false}
+              to="/"
+            >
+              <h1>
+                My Health Navigator
+              </h1>
+            </Link>
+          </header>,
+          <Switch
+            className="middle-container"
+          >
+            <Route
+              component={[Function]}
+              exact={true}
+              path="/"
+            />
+            <Route
+              exact={true}
+              path="/profile"
+              render={[Function]}
+            />
+            <Route
+              exact={true}
+              path="/appointments"
+              render={[Function]}
+            />
+            <Route
+              exact={true}
+              path="/providers"
+              render={[Function]}
+            />
+            <Route
+              exact={true}
+              path="/insurance"
+              render={[Function]}
+            />
+            <Route
+              render={[Function]}
+            />
+          </Switch>,
+          <nav
+            className="nav-container"
+          >
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="navigation"
+              to="/profile"
+            >
+              <div>
+                <i
+                  className="fas fa-user-circle navigation"
+                />
+                <p>
+                  Profile
+                </p>
+              </div>
+            </NavLink>
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="navigation"
+              to="/appointments"
+            >
+              <div>
+                <i
+                  className="far fa-calendar-alt navigation"
+                />
+                <p>
+                  Appointments
+                </p>
+              </div>
+            </NavLink>
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="navigation"
+              to="/providers"
+            >
+              <div>
+                <i
+                  className="fas fa-user-md navigation"
+                />
+                <p>
+                  Providers
+                </p>
+              </div>
+            </NavLink>
+            <NavLink
+              activeClassName="active"
+              aria-current="page"
+              className="navigation"
+              to="/insurance"
+            >
+              <div>
+                <i
+                  className="far fa-address-card navigation"
+                />
+                <p>
+                  Insurance
+                </p>
+              </div>
+            </NavLink>
+          </nav>,
+        ],
+        "className": "main-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <Link
+              className="link-header"
+              replace={false}
+              to="/"
+            >
+              <h1>
+                My Health Navigator
+              </h1>
+            </Link>,
+            "className": "header-container",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "children": <h1>
+                My Health Navigator
+              </h1>,
+              "className": "link-header",
+              "replace": false,
+              "to": "/",
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "My Health Navigator",
+              },
+              "ref": null,
+              "rendered": "My Health Navigator",
+              "type": "h1",
+            },
+            "type": [Function],
+          },
+          "type": "header",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <Route
+                component={[Function]}
+                exact={true}
+                path="/"
+              />,
+              <Route
+                exact={true}
+                path="/profile"
+                render={[Function]}
+              />,
+              <Route
+                exact={true}
+                path="/appointments"
+                render={[Function]}
+              />,
+              <Route
+                exact={true}
+                path="/providers"
+                render={[Function]}
+              />,
+              <Route
+                exact={true}
+                path="/insurance"
+                render={[Function]}
+              />,
+              <Route
+                render={[Function]}
+              />,
+            ],
+            "className": "middle-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "component": [Function],
+                "exact": true,
+                "path": "/",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "exact": true,
+                "path": "/profile",
+                "render": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "exact": true,
+                "path": "/appointments",
+                "render": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "exact": true,
+                "path": "/providers",
+                "render": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "exact": true,
+                "path": "/insurance",
+                "render": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "render": [Function],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <NavLink
+                activeClassName="active"
+                aria-current="page"
+                className="navigation"
+                to="/profile"
+              >
+                <div>
+                  <i
+                    className="fas fa-user-circle navigation"
+                  />
+                  <p>
+                    Profile
+                  </p>
+                </div>
+              </NavLink>,
+              <NavLink
+                activeClassName="active"
+                aria-current="page"
+                className="navigation"
+                to="/appointments"
+              >
+                <div>
+                  <i
+                    className="far fa-calendar-alt navigation"
+                  />
+                  <p>
+                    Appointments
+                  </p>
+                </div>
+              </NavLink>,
+              <NavLink
+                activeClassName="active"
+                aria-current="page"
+                className="navigation"
+                to="/providers"
+              >
+                <div>
+                  <i
+                    className="fas fa-user-md navigation"
+                  />
+                  <p>
+                    Providers
+                  </p>
+                </div>
+              </NavLink>,
+              <NavLink
+                activeClassName="active"
+                aria-current="page"
+                className="navigation"
+                to="/insurance"
+              >
+                <div>
+                  <i
+                    className="far fa-address-card navigation"
+                  />
+                  <p>
+                    Insurance
+                  </p>
+                </div>
+              </NavLink>,
+            ],
+            "className": "nav-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "aria-current": "page",
+                "children": <div>
+                  <i
+                    className="fas fa-user-circle navigation"
+                  />
+                  <p>
+                    Profile
+                  </p>
+                </div>,
+                "className": "navigation",
+                "to": "/profile",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <i
+                      className="fas fa-user-circle navigation"
+                    />,
+                    <p>
+                      Profile
+                    </p>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "fas fa-user-circle navigation",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "i",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Profile",
+                    },
+                    "ref": null,
+                    "rendered": "Profile",
+                    "type": "p",
+                  },
+                ],
+                "type": "div",
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "aria-current": "page",
+                "children": <div>
+                  <i
+                    className="far fa-calendar-alt navigation"
+                  />
+                  <p>
+                    Appointments
+                  </p>
+                </div>,
+                "className": "navigation",
+                "to": "/appointments",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <i
+                      className="far fa-calendar-alt navigation"
+                    />,
+                    <p>
+                      Appointments
+                    </p>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "far fa-calendar-alt navigation",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "i",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Appointments",
+                    },
+                    "ref": null,
+                    "rendered": "Appointments",
+                    "type": "p",
+                  },
+                ],
+                "type": "div",
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "aria-current": "page",
+                "children": <div>
+                  <i
+                    className="fas fa-user-md navigation"
+                  />
+                  <p>
+                    Providers
+                  </p>
+                </div>,
+                "className": "navigation",
+                "to": "/providers",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <i
+                      className="fas fa-user-md navigation"
+                    />,
+                    <p>
+                      Providers
+                    </p>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "fas fa-user-md navigation",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "i",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Providers",
+                    },
+                    "ref": null,
+                    "rendered": "Providers",
+                    "type": "p",
+                  },
+                ],
+                "type": "div",
+              },
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "aria-current": "page",
+                "children": <div>
+                  <i
+                    className="far fa-address-card navigation"
+                  />
+                  <p>
+                    Insurance
+                  </p>
+                </div>,
+                "className": "navigation",
+                "to": "/insurance",
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <i
+                      className="far fa-address-card navigation"
+                    />,
+                    <p>
+                      Insurance
+                    </p>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "far fa-address-card navigation",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "i",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Insurance",
+                    },
+                    "ref": null,
+                    "rendered": "Insurance",
+                    "type": "p",
+                  },
+                ],
+                "type": "div",
+              },
+              "type": [Function],
+            },
+          ],
+          "type": "nav",
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
