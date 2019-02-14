@@ -8,9 +8,9 @@ export const isLoading = (bool) => ({
   isLoading: bool
 })
 
-export const addAppointment = (appontmentDetails) => ({
+export const addAppointment = (appointmentDetails) => ({
   type: 'ADD_APPOINTMENT',
-  appontmentDetails
+  appointmentDetails
 })
 
 export const addProvider = (providerDetails) => ({
@@ -24,6 +24,6 @@ export const addInsurance = (insuranceDetails) => ({
 })
 
 export const addProfile = (profileDetails) => ({
-  type: 'ADD_Profile',
+  type: 'ADD_PROFILE',
   profileDetails
 })
