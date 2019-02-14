@@ -7,7 +7,6 @@ import Display from '../../components/Display/Display';
 
 
 class App extends Component {
-
 // <i class="fas fa-user-md"></i>
 // <i class="far fa-address-card"></i>
 // <i class="far fa-calendar-alt"></i>
@@ -41,31 +40,31 @@ class App extends Component {
             )}  />
         </Switch>
         <nav className='nav-container'>
-        <NavLink to='/profile' className='navigation'>
-          <div>
-            <i class="fas fa-user-circle"></i>
-            <p>Profile</p>
-          </div>
-        </NavLink>
-        <NavLink to='/appointments' className='navigation'>
-          <div>
-            <i class="far fa-calendar-alt"></i>
-            <p>Appointments</p>
-          </div><
-        /NavLink>
-        <NavLink to='/providers' className='navigation'>
-          <div>
-            <i class="fas fa-user-md"></i>
-            <p>Providers</p>
-          </div>
-        </NavLink>
-        <NavLink to='/insurance' className='navigation'>
-          <div>
-            <i class="far fa-address-card"></i>
-            <p>Insurance</p>
+          <NavLink to='/profile' className='navigation'>
+            <div>
+              <i className="fas fa-user-circle"></i>
+              <p>Profile</p>
             </div>
-        </NavLink>
-        </nav>
+          </NavLink>
+          <NavLink to='/appointments' className='navigation'>
+            <div>
+              <i className="far fa-calendar-alt"></i>
+              <p>Appointments</p>
+            </div>
+          </NavLink>
+          <NavLink to='/providers' className='navigation'>
+            <div>
+              <i className="fas fa-user-md"></i>
+              <p>Providers</p>
+            </div>
+          </NavLink>
+          <NavLink to='/insurance' className='navigation'>
+            <div>
+              <i className="far fa-address-card"></i>
+              <p>Insurance</p>
+              </div>
+          </NavLink>
+          </nav>
       </section>
     );
   }
