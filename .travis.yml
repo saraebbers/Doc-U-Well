@@ -1,3 +1,12 @@
 language: node_js
 node_js:
-  - "node"
+- node
+notifications:
+  email: false
+env:
+deploy:
+  provider: heroku
+  api_key:
+    secure: NvwSCc02A6smHUmeATpLC5l0llmO6I/tcj+e6Kx1uoy9DtQML5xBk47HHh8sZIwERLr7+boclvlj5rnGzHwN0m6X8t6z9yyL8Coit5THuC18jnMV5ZJfOqObdv1br1C/x0EdcpGR02ircvUrvQH66a/46qf3+r1uDF6pmLlxklmlkEYsqqQ0QFx+cJgoPbyW6GFKah7hk5t3R3GCaEmRcn8uEYBMArRNsZ4DoSEy8xaz1huUcVgjI6vBlma/R657XBJgh6kJvN1RDVxAhmLfjeoicdqBdtQpaK5FQnY+VPv1nsOmsdrnCJAylAbG5FwF9nssD3XteUN9P8Y6EuncUiNDhlzj+ET/2de7hFfpx6A/bt2izFxtziqT/ySxONELycTGPuJu0suD7hW10PmTLi3MABlzWUxvXOBQgQaAkdIkFfWSDJmBsI0SGASHXzRZ9j2+IttSj+V/RemKGBgVaUvGVvreFrVgRpMRCjtZldEPFzOP/InywAbsCR2Erzo4e0YIAYBrIXwMHp6hafQpNNWfVWKAueVoqTtRg7yThTvgdMdOQ7BdsjtMTHq+ADHiC8f9yVEf6aH79iLmHJbQwMJ55o5CAQjIJ9uf0dw7yP2f9jGvi1OCUN50VBUWXIhNkEvIPoqM9no5rmGxOGjuZ2eB8CmHMaox+svh8UPX9z4=
+    app: myhealthnavigator
+    skip_cleanup: true
