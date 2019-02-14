@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route, Switch, Link, NavLink } from 'react-router-dom';
 import '../../index.scss';
 import Home from '../../containers/Home/Home';
-import Display from '../../components/Display/Display';
+import Display from '../../containers/Display/Display';
 
 
 

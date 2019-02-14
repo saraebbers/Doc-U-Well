@@ -12,7 +12,7 @@
 .add-btn {
   margin: 10px;
   padding: 10px;
-  width: 70%;
+  width: 60%;
   border-radius: 10px;
   position: relative;
   font-size: 1rem;
@@ -22,7 +22,6 @@
   &:hover {
     background-color: #9ec65d;
     color: #fdf2ea;
-
   }
 }
 
@@ -30,6 +29,7 @@
   margin: 10px;
   padding: 10px;
   overflow: auto;
+  width: 95%;
 }
 
 .fa-plus-square {
