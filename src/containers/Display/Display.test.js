@@ -1,8 +1,8 @@
 import React from 'react';
-import Schedule from './Display';
+import Display from './Display';
 import { shallow } from 'enzyme';
 
-describe('Display Component', () => {
+describe('Display Container', () => {
   it('should match the screenshot', () => {
     const wrapper = shallow(<Display />)
     expect(wrapper).toMatchSnapshot()

@@ -13,7 +13,7 @@ const Schedule = (props) => {
   )
 }
 
-Display.propTypes = {
+Schedule.propTypes = {
   type: PropTypes.string
 }
 
