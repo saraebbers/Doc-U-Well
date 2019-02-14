@@ -24,7 +24,7 @@ class App extends Component {
             <h1>My Health Navigator</h1>
           </Link>
         </header>
-        <Switch>
+        <Switch className='middle-container'>
           <Route exact path='/' component={Home} />
           <Route exact path='/profile' render={() => <Display type="profile" />} />
           <Route exact path='/appointments' render={() => <Display type="appointments" />} />

@@ -36,15 +36,29 @@ class Card extends Component {
           </div>
         )
       case 'providers' :
-        // const { } = this.props
+        const { name, clinic, phone, address, speciality  } = this.props
         return(
-          <div></div>
+            <div className='card-container'>
+            <i className="fas fa-trash-alt"></i>
+            <i className="fas fa-edit"></i>
+            <h3>Provider Information</h3>
+            <p>{ name } </p>
+            <p>{ clinic } </p>
+            <p>{ phone } </p>
+            <p>{ address } </p>
+            <p>{ speciality } </p>
+          </div>
 
         )
       case 'insurance' :
-        // const { } = this.props
+        const { card, image } = this.props
         return(
-          <div></div>
+          <div className='card-container'>
+            <i className="fas fa-trash-alt"></i>
+            <h3>Insurance Card</h3>
+            <p>{ card } </p>
+            <div className='image-holder'> {image} </div>
+          </div>
         )
       default:
         return ('hit card default')

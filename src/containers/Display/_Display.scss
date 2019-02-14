@@ -1,5 +1,6 @@
 .display-container {
   display: grid;
+  grid-template-rows: 1fr 6fr;
   grid-template-columns: 1fr;
   justify-items: center;
   align-items: start; 
@@ -27,7 +28,6 @@
 .card-area {
   margin-bottom: 10px;
   padding: 10px;
-  overflow: auto;
   width: 95%;
   height: 100%;
 }

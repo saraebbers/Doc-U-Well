@@ -23,8 +23,6 @@ class Display extends Component {
     let btnName
     let responseArray
 
-    // const { type } = this.props
-
     switch (this.props.type) {
       case 'profile' : 
         url = 'url to get profile'
@@ -40,20 +38,19 @@ class Display extends Component {
         responseArray = [{date: 'Feb 14, 2019', time: '9:00 am', reason: 'Annual checkup', provider: 'Dr. Love', location: '124 Street Rd. Midlothian, VA 45459'}, {date: 'Jan 24, 2019', time: '7:00 am', reason: 'dentist', provider: 'Dr. FeelGood', location: '555 Street Rd. Denver, CO 88888'}, {date: 'June 4, 2019', time: '5:00 pm', reason: 'lab-work', provider: 'n/a', location: '14 Green Blvd. Beach, CA 00087'},{date: 'Feb 14, 2019', time: '9:00 am', reason: 'Annual checkup', provider: 'Dr. Love', location: '124 Street Rd. Midlothian, VA 45459'}, {date: 'Jan 24, 2019', time: '7:00 am', reason: 'dentist', provider: 'Dr. FeelGood', location: '555 Street Rd. Denver, CO 88888'}, {date: 'June 4, 2019', time: '5:00 pm', reason: 'lab-work', provider: 'n/a', location: '14 Green Blvd. Beach, CA 00087'}]
         return this.returnJsx(btnName, responseArray)
 
-      // case 'providers' : 
-      //   url = 'url for get all providers'
-      //   // await this.props.fetchProviders(url)
-      //   btnName = 'Add Provider'
-      //   responseArray = []
-      //   return this.returnJsx(btnName, information)
+      case 'providers' : 
+        url = 'url for get all providers'
+        // await this.props.fetchProviders(url)
+        btnName = 'Add Provider'
+        responseArray = [{name: 'DDS. Bob FeelGood', clinic: 'Green Clinic', address: '123 Red Road, Greenville, SC 12345', phone: '234-234-2313', speciality: 'Cardio'}, {name: 'Dr. Sue Happy', clinic: 'Red Clinic', address: '4444 Shadow Lane, Daytona, FL 78987', phone: '674-234-6783', speciality: 'Orthodontics'} ]
+        return this.returnJsx(btnName, responseArray)
 
-      // case 'insurance' : 
-      //   url = 'url for get all insurance'
-      //   // await this.props.fetchInsurance(url)
-      //   // map over insurance and pass it in as props
-      //   btnName = 'Add Insurance'
-      //   responseArray = []
-      //   return this.returnJsx(btnName, information)
+      case 'insurance' : 
+        url = 'url for get all insurance'
+        // await this.props.fetchInsurance(url)
+        btnName = 'Add Insurance'
+        responseArray = [{card: 'Doctor', image: ':-)'}, {card: 'Dentist', image: ':-0'}]
+        return this.returnJsx(btnName, responseArray)
 
       default:
         return ('hit display default')
