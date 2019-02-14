@@ -34,19 +34,18 @@
 }
 
 .navigation {
-  color: #fdf2ea;
+  color: #FDF2ea;
   padding: 10px;
   text-decoration: none;
   height: 100%;
   width: 100%;
 
-  &:hover {
-    background-color: #9ec65d;
+  &.active {
+    background-color: #768FA0
   }
 
-  &.active {
-    background-color: #fdf2ea;
-    color: green;
+  &:hover {
+    background-color: #9ec65d;
   }
 }
 
