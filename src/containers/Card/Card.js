@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 class Card extends Component {
 
   render() {
-    console.log(this.props)
 
     switch (this.props.type) {
       case 'profile' :
