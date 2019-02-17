@@ -23,6 +23,11 @@ export const addProvider = (providerDetails) => ({
   providerDetails
 })
 
+export const getProviders = (providerDetails) => ({
+  type: 'GET_PROVIDERS',
+  providerDetails
+})
+
 export const addInsurance = (insuranceDetails) => ({
   type: 'ADD_INSURANCE',
   insuranceDetails

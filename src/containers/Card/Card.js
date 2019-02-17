@@ -35,17 +35,15 @@ class Card extends Component {
           </div>
         )
       case 'providers' :
-        const { name, clinic, phone, address, speciality  } = this.props
+        const { given_name, surname, street_address, city, state, zip, phone  } = this.props
         return(
             <div className='card-container'>
             <i className="fas fa-trash-alt"></i>
             <i className="fas fa-edit"></i>
             <h3>Provider Information</h3>
-            <p>{ name } </p>
-            <p>{ clinic } </p>
+            <p>{ given_name } { surname }</p>
+            <p>{ street_address } { city } { state } { zip }</p>
             <p>{ phone } </p>
-            <p>{ address } </p>
-            <p>{ speciality } </p>
           </div>
 
         )
