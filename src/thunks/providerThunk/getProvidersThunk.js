@@ -8,7 +8,7 @@ export const getAllProvidersThunk = (url) => {
       dispatch(isLoading(true))
       const response = await fetch(url, {
         method: 'GET',
-        headers: {
+        params: {
           'api_key': `${apiKey}`
         }
       })
@@ -17,6 +17,7 @@ export const getAllProvidersThunk = (url) => {
       }
       dispatch(isLoading(false))
       const providerDetails = await response.json()
+      console.log(providerDetails)
       dispatch(getProviders(providerDetails.results))
     } catch(error) {
       dispatch(hasErrored(error.message))

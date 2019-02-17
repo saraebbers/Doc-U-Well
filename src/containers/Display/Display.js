@@ -68,7 +68,7 @@ class Display extends Component {
         return this.returnJsx(btnName, responseArray)
 
       case 'providers' :
-        url = `https://my-health-tracker.herokuapp.com/api/v1/providers${apiKey}`
+        url = 'https://my-health-tracker.herokuapp.com/api/v1/providers'
                 // await this.props.fetchProviders(url)
         btnName = 'Add Provider'
         responseArray = getAllProviders(url)
