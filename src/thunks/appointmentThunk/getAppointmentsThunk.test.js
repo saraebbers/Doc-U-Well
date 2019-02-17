@@ -18,4 +18,37 @@ describe('getAppointmentsThunk', () => {
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(true))
   })
 
+  it('should dispatch hasErrored with a message if the response is not ok', async () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+          ok: false,
+          statusText: 'did not work'
+      }))
+    const thunk = getAppointmentsThunk(mockUrl)
+    await thunk(mockDispatch)
+    expect(mockDispatch).toHaveBeenCalledWith(hasErrored('did not work'))
+  })
+
+  it('should dispatch isLoading action with false value if the response comes back ok', async () => {
+    window.fetch = jest.fn().mockImplementation(() => 
+      Promise.resolve({
+        ok: true
+      }))
+    const thunk = getAppointmentsThunk(mockUrl)
+    await thunk(mockDispatch)
+    expect(mockDispatch).toHaveBeenCalledWith(isLoading(false))
+  })
+
+    it('should dispatch getAppointments action', async () => {
+    window.fetch = jest.fn().mockImplementation(() => 
+    Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve({
+        results: mockAppointments
+      })
+    }))
+    const thunk = getAppointmentsThunk(mockUrl)
+    await thunk(mockDispatch)
+    expect(mockDispatch).toHaveBeenCalledWith(getAppointments(mockAppointments))
+  })
+
 })

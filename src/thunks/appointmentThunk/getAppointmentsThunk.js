@@ -17,7 +17,7 @@ export const getAppointmentsThunk = (url) => {
       }
       dispatch(isLoading(false))
       const appointmentDetails = await response.json()
-      dispatch(addAppointments(appointmentDetails))
+      dispatch(getAppointments(appointmentDetails.results))
     } catch(error) {
       dispatch(hasErrored(error.message))
     }
