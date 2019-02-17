@@ -3,6 +3,8 @@ import '../../index.scss';
 import PropTypes from 'prop-types';
 import Card from '../Card/Card'
 import Schedule from '../../components/Schedule/Schedule'
+import { connect } from 'react-redux';
+
 
 
 class Display extends Component {
@@ -92,20 +94,19 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    getAllAppointments: (url => {
-      dispatch(getAllAppointmentsThunk(url))
-    }),
-    getAllProviders: (url => {
-      dispatch(getAllProvidersThunk(url))
-    }),
-    getAllInsurance: (url => {
-      dispatch(getAllInsuranceThunk(url))
-    }),
-    getAllProfile: (url => {
-      dispatch(GetAllProfileThunk(url))
-    }),
-  })
-}
+  getAllAppointments: (url => {
+    dispatch(getAllAppointmentsThunk(url))
+  }),
+  getAllProviders: (url => {
+    dispatch(getAllProvidersThunk(url))
+  }),
+  getAllInsurance: (url => {
+    dispatch(getAllInsuranceThunk(url))
+  }),
+  getAllProfile: (url => {
+    dispatch(GetAllProfileThunk(url))
+  }),
+})
 
 Display.propTypes = {
   type: PropTypes.string
