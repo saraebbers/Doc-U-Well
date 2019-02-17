@@ -27,29 +27,40 @@ class Schedule extends Component {
       address: '',
       specialty: '',
       insuranceType: '',
-      image: '',
+      polNum: '',
       notes: '',
     }
   }
 
   handleSubmit() {
-    const { type, handleProfileSubmit, handleAppointmentSubmit } = this.props
-    const { blood, height, weight, bps, bpd, hr, date, time, ap, kind, provider, clinic, phone, address, specialty, insuranceType, image, notes } = this.state
+    const { type, handleProfileSubmit, handleAppointmentSubmit, handleProviderSubmit, handleInsuranceSubmit } = this.props
+    const { blood, height, weight, bps, bpd, hr, date, time, ap, kind, provider, clinic, phone, address, specialty, insuranceType, polNum, notes } = this.state
     let text
     switch (type) {
       case 'profile' :
         text = {blood, height, weight, bps, bpd, hr}
-        console.log(text)
         handleProfileSubmit(text)
+        this.setState({blood: '', height: '', weight: '', bps: '', bpt: '', hr: '' })
+        break
       case 'appointments' :
         text = {date, time, kind, provider, notes}
-        console.log(text)
         handleAppointmentSubmit(text)
+        this.setState({date:'', time: '', kind: '', provider: '', notes: ''})
+        break
       case 'providers' :
+        text = {provider, clinic, phone, address, specialty}
+        handleProviderSubmit(text)
+        this.setState({provider: '', clinic: '', phone: '', address: '', specialty: ''})
+        break
       case 'insurance' :
+        text = {insuranceType, polNum}
+        handleInsuranceSubmit(text)
+        this.setState({insuranceType: '', polNum: ''})
+        break
+      default:
+        return ('hit handleSubmit default')
     }
     // add submitted info to redux / make fetch for post of new data
-    // return all text fields back to ''
     // close form 
   }
 
@@ -71,7 +82,7 @@ class Schedule extends Component {
 
   render() {
     let formData
-    const { blood, height, weight, bps, bpd, hr, date, time, ap, type, provider, clinic, phone, address, kind, specialty, insuranceType, image, notes} = this.state
+    const { blood, height, weight, bps, bpd, hr, date, time, ap, type, provider, clinic, phone, address, kind, specialty, insuranceType, polNum, notes} = this.state
 
     switch (this.props.type) {
       case 'profile' :
@@ -98,7 +109,8 @@ class Schedule extends Component {
             <br/>
             Type of Appointment: <input placeholder='Type of Appointment' value={kind} onChange={(event) => this.setState({kind: event.target.value})}/> 
             <br/>
-            Provider: <input placeholder='Provider' value={provider} onChange={(event) => this.setState({provider: event.target.value})}/> <br/>
+            Provider: <input placeholder='Provider' value={provider} onChange={(event) => this.setState({provider: event.target.value})}/> 
+            <br/>
             <textarea rows='10' col='6' wrap placeholder='Add Appointment Notes Here' value={notes} onChange={(event) => this.setState({notes: event.target.value})}/> 
           </div>
         )
@@ -106,15 +118,27 @@ class Schedule extends Component {
       case 'providers' :
         formData = (
           <div className='form-info'>
-            <input />
+            Provider Name: <input placeholder='Provider Name' value={provider} onChange={(event) => this.setState({provider: event.target.value})}/> 
+            <br/>
+            Clinic Name: <input placeholder='Clinic Name' value={clinic} onChange={(event) => this.setState({clinic: event.target.value})}/> <input placeholder='am/pm' value={ap} onChange={(event) => this.setState({ap: event.target.value})}/> 
+            <br/>
+            Phone Number: <input placeholder='Phone Number' value={phone} onChange={(event) => this.setState({phone: event.target.value})}/> 
+            <br/>
+            Address: <input placeholder='Address' value={address} onChange={(event) => this.setState({address: event.target.value})}/> 
+            <br/>
+            Specialty: <input placeholder='Specialty' value={specialty} onChange={(event) => this.setState({specialty: event.target.value})}/>
           </div>
         )
+        return this.informationSubmission(formData)
       case 'insurance' :
         formData = (
           <div className='form-info'>
-            <input />
+            Insurance Type: <input placeholder='Insurance Type' value={insuranceType} onChange={(event) => this.setState({insuranceType: event.target.value})}/> 
+            <br/>
+            Insurance Policy Number: <input placeholder='Insurance Policy Number' value={polNum} onChange={(event) => this.setState({polNum: event.target.value})}/>
           </div>
         )
+        return this.informationSubmission(formData)
       default:
         return ('hit schedule default')
     }
@@ -135,12 +159,12 @@ const mapDispatchToProps = (dispatch) => {
     handleAppointmentSubmit: (text => {
       dispatch(addAppointment(text))
     }),
-    // handleProviderSubmit: (text => {
-    //   dispatch(addProvider(text))
-    // }),
-    // handleInsuranceSubmit: (text => {
-    //   dispatch(addInsurance(text))
-    // }),
+    handleProviderSubmit: (text => {
+      dispatch(addProvider(text))
+    }),
+    handleInsuranceSubmit: (text => {
+      dispatch(addInsurance(text))
+    }),
     handleProfileSubmit: (text => {
       dispatch(addProfile(text))
     }),
