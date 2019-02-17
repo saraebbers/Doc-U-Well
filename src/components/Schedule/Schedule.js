@@ -152,7 +152,7 @@ const mapStateToProps = (state) => {
     insurance: state.insurance,
     profile: state.profile,
     isLoading: state.isLoading,
-    errorMessage: errorMessage
+    errorMessage: state.errorMessage
     }
 }
 

@@ -2,7 +2,7 @@ import { isLoading, hasErrored, getAppointments } from '../../actions/index'
 import { apiKey } from '../../utils/apiKey';
 
 
-export const getAppointmentsThunk = (url) => {
+export const getAllAppointmentsThunk = (url) => {
   return async (dispatch) => {
     try {
       dispatch(isLoading(true))

@@ -1,5 +1,5 @@
 import { isLoading, hasErrored, getAppointments } from '../../actions/index';
-import { getAppointmentsThunk } from './getAppointmentsThunk.js';
+import { getAllAppointmentsThunk } from './getAppointmentsThunk.js';
 
 describe('getAppointmentsThunk', () => {
   let mockUrl
@@ -13,7 +13,7 @@ describe('getAppointmentsThunk', () => {
   })
 
   it('calls dispatch with the isLoading action with true value prior to the fetch call', () => {
-    const thunk = getAppointmentsThunk(mockUrl)
+    const thunk = getAllAppointmentsThunk(mockUrl)
     thunk(mockDispatch)
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(true))
   })
@@ -23,7 +23,7 @@ describe('getAppointmentsThunk', () => {
           ok: false,
           statusText: 'did not work'
       }))
-    const thunk = getAppointmentsThunk(mockUrl)
+    const thunk = getAllAppointmentsThunk(mockUrl)
     await thunk(mockDispatch)
     expect(mockDispatch).toHaveBeenCalledWith(hasErrored('did not work'))
   })
@@ -33,12 +33,12 @@ describe('getAppointmentsThunk', () => {
       Promise.resolve({
         ok: true
       }))
-    const thunk = getAppointmentsThunk(mockUrl)
+    const thunk = getAllAppointmentsThunk(mockUrl)
     await thunk(mockDispatch)
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(false))
   })
 
-    it('should dispatch getAppointments action', async () => {
+    it('should dispatch getAllAppointments action', async () => {
     window.fetch = jest.fn().mockImplementation(() => 
     Promise.resolve({
       ok: true,
@@ -46,7 +46,7 @@ describe('getAppointmentsThunk', () => {
         results: mockAppointments
       })
     }))
-    const thunk = getAppointmentsThunk(mockUrl)
+    const thunk = getAllAppointmentsThunk(mockUrl)
     await thunk(mockDispatch)
     expect(mockDispatch).toHaveBeenCalledWith(getAppointments(mockAppointments))
   })
