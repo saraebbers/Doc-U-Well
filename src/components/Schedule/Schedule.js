@@ -147,10 +147,12 @@ class Schedule extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    appointment: state.appointmentReducer,
-    provider: state.providerReducer,
-    insurance: state.insuranceReducer,
-    profile: state.profileReducer,
+    appointment: state.appointments,
+    provider: state.providers,
+    insurance: state.insurance,
+    profile: state.profile,
+    isLoading: state.isLoading,
+    errorMessage: errorMessage
     }
 }
 
