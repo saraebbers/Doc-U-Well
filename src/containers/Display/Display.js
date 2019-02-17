@@ -49,9 +49,10 @@ class Display extends Component {
   render () {
     let url
     let btnName
-    let responseArray    
+    let responseArray
+    const { type, getAllProviders } = this.props
 
-    switch (this.props.type) {
+    switch (type) {
       case 'profile' :
         url = 'url to get profile'
         // await this.props.fetchProfile(url)
@@ -70,7 +71,7 @@ class Display extends Component {
         url = `https://my-health-tracker.herokuapp.com/api/v1/providers${apiKey}`
                 // await this.props.fetchProviders(url)
         btnName = 'Add Provider'
-        responseArray = [{name: 'DDS. Bob FeelGood', clinic: 'Green Clinic', address: '123 Red Road, Greenville, SC 12345', phone: '234-234-2313', speciality: 'Cardio'}, {name: 'Dr. Sue Happy', clinic: 'Red Clinic', address: '4444 Shadow Lane, Daytona, FL 78987', phone: '674-234-6783', speciality: 'Orthodontics'} ]
+        responseArray = getAllProviders(url)
         return this.returnJsx(btnName, responseArray)
 
       case 'insurance' :
