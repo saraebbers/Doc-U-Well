@@ -3,7 +3,11 @@ import { appointmentReducer } from './appointmentReducer/appointmentReducer'
 import { errorReducer } from './errorReducer/errorReducer'
 
 const rootReducer = combineReducers({
-  appointmentReducer,
+  appointments: appointmentReducer,
+  profile: profileReducer,
+  providers: providersReducer,
+  insurance: insuranceReducer,
+  isLoading: isLoadingReducer,
   errorMessage: errorReducer,
 })
 

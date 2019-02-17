@@ -61,10 +61,10 @@ class Display extends Component {
         return this.returnJsx(btnName, responseArray)
 
       case 'providers' :
-        url = 'url for get all providers'
-        // await this.props.fetchProviders(url)
+        url = `https://my-health-tracker.herokuapp.com/api/v1/providers${apiKey}`
+                // await this.props.fetchProviders(url)
         btnName = 'Add Provider'
-        responseArray = [{name: 'DDS. Bob FeelGood', clinic: 'Green Clinic', address: '123 Red Road, Greenville, SC 12345', phone: '234-234-2313', speciality: 'Cardio'}, {name: 'Dr. Sue Happy', clinic: 'Red Clinic', address: '4444 Shadow Lane, Daytona, FL 78987', phone: '674-234-6783', speciality: 'Orthodontics'} ]
+        // responseArray = [{name: 'DDS. Bob FeelGood', clinic: 'Green Clinic', address: '123 Red Road, Greenville, SC 12345', phone: '234-234-2313', speciality: 'Cardio'}, {name: 'Dr. Sue Happy', clinic: 'Red Clinic', address: '4444 Shadow Lane, Daytona, FL 78987', phone: '674-234-6783', speciality: 'Orthodontics'} ]
         return this.returnJsx(btnName, responseArray)
 
       case 'insurance' :
@@ -80,8 +80,33 @@ class Display extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    appointment: state.appointmentReducer,
+    provider: state.providerReducer,
+    insurance: state.insuranceReducer,
+    profile: state.profileReducer,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+    getAllAppointments: (url => {
+      dispatch(getAllAppointmentsThunk(url))
+    }),
+    getAllProviders: (url => {
+      dispatch(getAllProvidersThunk(url))
+    }),
+    getAllInsurance: (url => {
+      dispatch(getAllInsuranceThunk(url))
+    }),
+    getAllProfile: (url => {
+      dispatch(GetAllProfileThunk(url))
+    }),
+  })
+}
+
 Display.propTypes = {
   type: PropTypes.string
 }
 
-export default Display;
+export default connect(mapStateToProps, mapDispatchToProps)(Display);
