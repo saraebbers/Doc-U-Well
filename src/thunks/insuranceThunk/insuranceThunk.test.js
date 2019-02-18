@@ -1,0 +1,1 @@
+// [{card: 'Doctor', image: ':-)'}, {card: 'Dentist', image: ':-0'}]

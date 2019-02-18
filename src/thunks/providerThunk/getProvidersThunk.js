@@ -6,11 +6,12 @@ export const getAllProvidersThunk = (url) => {
   return async (dispatch) => {
     try {
       dispatch(isLoading(true))
+      // const payload = {
+          // 'api_key': `${apiKey}`
+        // }
       const response = await fetch(url, {
         method: 'GET',
-        params: {
-          'api_key': `${apiKey}`
-        }
+        // body: JSON.stringify(payload)
       })
       if(!response.ok) {
         throw Error(response.statusText)
