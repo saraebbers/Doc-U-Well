@@ -50,7 +50,7 @@ class Display extends Component {
     let url
     let btnName
     let responseArray
-    const { type, getAllProviders } = this.props
+    const { type, getAllProviders, provider} = this.props
 
     switch (type) {
       case 'profile' :
@@ -70,8 +70,9 @@ class Display extends Component {
       case 'providers' :
         url = 'https://my-health-tracker.herokuapp.com/api/v1/providers'
                 // await this.props.fetchProviders(url)
+        getAllProviders(url)
         btnName = 'Add Provider'
-        responseArray = getAllProviders(url)
+        responseArray = provider
         return this.returnJsx(btnName, responseArray)
 
       case 'insurance' :
@@ -90,7 +91,7 @@ class Display extends Component {
 const mapStateToProps = (state) => {
   return {
     appointment: state.appointments,
-    provider: state.profile,
+    provider: state.provider,
     insurance: state.insurance,
     profile: state.profile,
     isLoading: state.isLoading,
