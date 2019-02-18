@@ -50,9 +50,9 @@ class Display extends Component {
     let url
     let btnName
     let responseArray
-    const { type, getAllProviders, provider} = this.props
+    const { type, getAllProviders, providers} = this.props
 
-    switch (type) {
+    switch (this.props.type) {
       case 'profile' :
         url = 'url to get profile'
         // await this.props.fetchProfile(url)
@@ -72,7 +72,7 @@ class Display extends Component {
                 // await this.props.fetchProviders(url)
         getAllProviders(url)
         btnName = 'Add Provider'
-        responseArray = provider
+        responseArray = providers
         return this.returnJsx(btnName, responseArray)
 
       case 'insurance' :
@@ -90,8 +90,8 @@ class Display extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    appointment: state.appointments,
-    provider: state.provider,
+    appointments: state.appointments,
+    providers: state.providers,
     insurance: state.insurance,
     profile: state.profile,
     isLoading: state.isLoading,
@@ -99,13 +99,9 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  getAllAppointments: (url => {
-    dispatch(getAllAppointmentsThunk(url))
-  }),
-  getAllProviders: (url => {
-    dispatch(getAllProvidersThunk(url))
-  }),
+export const mapDispatchToProps = (dispatch) => ({
+  getAllAppointments: (url) => dispatch(getAllAppointmentsThunk(url)),
+  getAllProviders: (url) => dispatch(getAllProvidersThunk(url)),
   // getAllInsurance: (url => {
   //   dispatch(getAllInsuranceThunk(url))
   // }),
