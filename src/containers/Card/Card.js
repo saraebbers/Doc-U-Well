@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import '../../index.scss';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
 
 class Card extends Component {
 
@@ -22,20 +24,25 @@ class Card extends Component {
           </div>
         )
       case 'appointments' :
-        const { date, time, reason, provider, location } = this.props
+        const { datetime, profile_id, provider_id} = this.props.attributes
+        let currentProvider = this.props.providers.find(provider => {
+          return provider.id == provider_id
+        })
+        const date = new Date(datetime).toString()
+
         return(
           <div className='card-container'>
             <i className="fas fa-trash-alt"></i>
             <i className="fas fa-edit"></i>
             <h3>Appointment Information</h3>
-            <p>{ date } </p>
-            <p>{ time } </p>
-            <p>{ reason } with { provider }</p>
-            <p>{ location } </p>
+            <p> Your next appointment is on: {date}</p>
+            <p>With: { currentProvider.attributes.given_name } { currentProvider.attributes.surname }</p>
+            <p>At: { currentProvider.attributes.street_address } { currentProvider.attributes.city } { currentProvider.attributes.state } { currentProvider.attributes.zip }</p>
+            <p> To contact provider call: { currentProvider.attributes.phone } </p>
+
           </div>
         )
       case 'providers' :
-        console.log('card-providers', this.props)
         const { given_name, surname, street_address, city, state, zip, phone  } = this.props.attributes
         return(
             <div className='card-container'>
@@ -61,8 +68,6 @@ class Card extends Component {
       default:
         return ('hit card default')
     }
-
-
   }
 }
 
@@ -70,4 +75,15 @@ Card.propTypes = {
   name: PropTypes.string
 }
 
-export default Card;
+const mapStateToProps = (state) => {
+  return {
+    appointments: state.appointments,
+    providers: state.providers,
+    insurance: state.insurance,
+    profile: state.profile,
+    isLoading: state.isLoading,
+    errorMessage: state.errorMessage,
+    }
+}
+
+export default connect(mapStateToProps)(Card);
