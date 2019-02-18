@@ -3,7 +3,7 @@ export const profileReducer = (state = [], action) => {
     case 'ADD_PROFILE' :
       return [...state, action.profileDetails]
     case 'GET_PROFILE' :
-      return [...state, action.profileDetails]
+      return [...state, ...action.profileDetails]
     default:
       return state
   }

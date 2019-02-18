@@ -7,22 +7,16 @@ export const getAllAppointmentsThunk = (url) => {
     try {
       dispatch(isLoading(true))
       const payload = {
-        api_key: "",
+        api_key: `${apiKey}`,
         profile_id: '1'
       }
-      const response = await fetch(url, {
-        method: 'GET',
-        headers: { 'Accept': 'application/json',
-          'Content-Type': 'application/json' },
-        mode: 'cors',
-        body: JSON.stringify(payload)
-      })
+      const response = await fetch(url)
       if(!response.ok) {
         throw Error(response.statusText)
       }
       dispatch(isLoading(false))
       const appointmentDetails = await response.json()
-      dispatch(getAppointments(appointmentDetails.results))
+      dispatch(getAppointments(appointmentDetails.data))
     } catch(error) {
       dispatch(hasErrored(error.message))
     }

@@ -35,7 +35,8 @@ class Card extends Component {
           </div>
         )
       case 'providers' :
-        const { given_name, surname, street_address, city, state, zip, phone  } = this.props
+        console.log('card-providers', this.props)
+        const { given_name, surname, street_address, city, state, zip, phone  } = this.props.attributes
         return(
             <div className='card-container'>
             <i className="fas fa-trash-alt"></i>

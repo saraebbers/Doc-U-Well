@@ -18,7 +18,7 @@ export const getAllProvidersThunk = (url) => {
       }
       dispatch(isLoading(false))
       const providerDetails = await response.json()
-      dispatch(getProviders(providerDetails.results))
+      dispatch(getProviders(providerDetails.data))
     } catch(error) {
       dispatch(hasErrored(error.message))
     }
