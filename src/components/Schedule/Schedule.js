@@ -61,7 +61,7 @@ class Schedule extends Component {
         return ('hit handleSubmit default')
     }
     // add submitted info to redux / make fetch for post of new data
-    // close form 
+    // close form
   }
 
   informationSubmission(formData) {
@@ -88,43 +88,43 @@ class Schedule extends Component {
       case 'profile' :
         formData = (
           <div className='form-info'>
-            Height: <input placeholder='Height' value={height} onChange={(event) => this.setState({height: event.target.value})}/> 
+            Height: <input placeholder='Height' value={height} onChange={(event) => this.setState({height: event.target.value})}/>
             <br/>
-            Weight: <input placeholder='Weight' value={weight} onChange={(event) => this.setState({weight: event.target.value})}/> 
+            Weight: <input placeholder='Weight' value={weight} onChange={(event) => this.setState({weight: event.target.value})}/>
             <br/>
-            Blood Pressure: <input placeholder='Systolic' value={bps} onChange={(event) => this.setState({bps: event.target.value})}/> / <input placeholder='Diastolic' value={bpd} onChange={(event) => this.setState({bpd: event.target.value})}/> 
+            Blood Pressure: <input placeholder='Systolic' value={bps} size='10' onChange={(event) => this.setState({bps: event.target.value})}/> / <input placeholder='Diastolic' value={bpd} size='10' onChange={(event) => this.setState({bpd: event.target.value})}/>
             <br/>
-            Heart Rate: <input placeholder='Heart Rate' value={hr} onChange={(event) => this.setState({hr: event.target.value})}/> 
+            Heart Rate: <input placeholder='Heart Rate' value={hr} onChange={(event) => this.setState({hr: event.target.value})}/>
             <br/>
-            Blood Type: <input placeholder='Blood Type' value={blood} onChange={(event) => this.setState({blood: event.target.value})}/> 
+            Blood Type: <input placeholder='Blood Type' value={blood} onChange={(event) => this.setState({blood: event.target.value})}/>
           </div>
         )
         return this.informationSubmission(formData)
       case 'appointments' :
         formData = (
           <div className='form-info'>
-            Date: <input placeholder='Date' value={date} onChange={(event) => this.setState({date: event.target.value})}/> 
+            Date: <input placeholder='Date' value={date} onChange={(event) => this.setState({date: event.target.value})}/>
             <br/>
-            Time: <input placeholder='Time' value={time} onChange={(event) => this.setState({time: event.target.value})}/> <input placeholder='am/pm' value={ap} onChange={(event) => this.setState({ap: event.target.value})}/> 
+            Time: <input placeholder='Time' value={time} onChange={(event) => this.setState({time: event.target.value})}/> <input placeholder='am/pm' size='6' value={ap} onChange={(event) => this.setState({ap: event.target.value})}/>
             <br/>
-            Type of Appointment: <input placeholder='Type of Appointment' value={kind} onChange={(event) => this.setState({kind: event.target.value})}/> 
+            Type of Appointment: <input placeholder='Type of Appointment' value={kind} onChange={(event) => this.setState({kind: event.target.value})}/>
             <br/>
-            Provider: <input placeholder='Provider' value={provider} onChange={(event) => this.setState({provider: event.target.value})}/> 
+            Provider: <input placeholder='Provider' value={provider} onChange={(event) => this.setState({provider: event.target.value})}/>
             <br/>
-            <textarea rows='10' col='6' wrap placeholder='Add Appointment Notes Here' value={notes} onChange={(event) => this.setState({notes: event.target.value})}/> 
+            <textarea width='100%' rows='10' cols='50' wrap placeholder='Add Appointment Notes Here' value={notes} onChange={(event) => this.setState({notes: event.target.value})}/>
           </div>
         )
         return this.informationSubmission(formData)
       case 'providers' :
         formData = (
           <div className='form-info'>
-            Provider Name: <input placeholder='Provider Name' value={provider} onChange={(event) => this.setState({provider: event.target.value})}/> 
+            Provider Name: <input placeholder='Provider Name' value={provider} onChange={(event) => this.setState({provider: event.target.value})}/>
             <br/>
-            Clinic Name: <input placeholder='Clinic Name' value={clinic} onChange={(event) => this.setState({clinic: event.target.value})}/> <input placeholder='am/pm' value={ap} onChange={(event) => this.setState({ap: event.target.value})}/> 
+            Clinic Name: <input placeholder='Clinic Name' value={clinic} onChange={(event) => this.setState({clinic: event.target.value})}/> <input placeholder='am/pm' value={ap} onChange={(event) => this.setState({ap: event.target.value})}/>
             <br/>
-            Phone Number: <input placeholder='Phone Number' value={phone} onChange={(event) => this.setState({phone: event.target.value})}/> 
+            Phone Number: <input placeholder='Phone Number' value={phone} onChange={(event) => this.setState({phone: event.target.value})}/>
             <br/>
-            Address: <input placeholder='Address' value={address} onChange={(event) => this.setState({address: event.target.value})}/> 
+            Address: <input placeholder='Address' value={address} onChange={(event) => this.setState({address: event.target.value})}/>
             <br/>
             Specialty: <input placeholder='Specialty' value={specialty} onChange={(event) => this.setState({specialty: event.target.value})}/>
           </div>
@@ -133,9 +133,9 @@ class Schedule extends Component {
       case 'insurance' :
         formData = (
           <div className='form-info'>
-            Insurance Type: <input placeholder='Insurance Type' value={insuranceType} onChange={(event) => this.setState({insuranceType: event.target.value})}/> 
+            Insurance Type: <input placeholder='Insurance Type' value={insuranceType} onChange={(event) => this.setState({insuranceType: event.target.value})}/>
             <br/>
-            Insurance Policy Number: <input placeholder='Insurance Policy Number' value={polNum} onChange={(event) => this.setState({polNum: event.target.value})}/>
+            Insurance Policy Number: <input placeholder='Insurance Policy Number' value={polNum} size='22' onChange={(event) => this.setState({polNum: event.target.value})}/>
           </div>
         )
         return this.informationSubmission(formData)
