@@ -72,6 +72,16 @@ describe('actions', () => {
     expect(result).toEqual(expected)
   })
 
+  it('getInsurance should take in the payload and return an object with a type of GET_INSURANCE', () => {
+    const insuranceDetails = ''
+    const expected = {
+      type: 'GET_INSURANCE',
+      insuranceDetails
+    }
+    const result = actions.getInsurance(insuranceDetails)
+    expect(result).toEqual(expected)
+  })
+
   it('addProfile should take in the payload and return an object with a type of ADD_PROFILE', () => {
     const profileDetails = ''
     const expected = {
@@ -79,6 +89,16 @@ describe('actions', () => {
       profileDetails
     }
     const result = actions.addProfile(profileDetails)
+    expect(result).toEqual(expected)
+  })
+
+  it('getProfile should take in the payload and return an object with a type of GET_PROFILE', () => {
+    const profileDetails = ''
+    const expected = {
+      type: 'GET_PROFILE',
+      profileDetails
+    }
+    const result = actions.getProfile(profileDetails)
     expect(result).toEqual(expected)
   })
 
