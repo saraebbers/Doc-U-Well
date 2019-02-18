@@ -6,25 +6,44 @@ import Schedule from '../../components/Schedule/Schedule'
 
 
 class Display extends Component {
+  constructor() {
+    super()
+    this.state = {
+      toggleForm: false
+    }
+  }
+
+  showForm () {
+    this.setState({toggleForm: !this.state.toggleForm})
+  }
 
   returnJsx (btnName, responseArray) {
     let info = responseArray.map(arrayItem => {
       return <Card {...arrayItem} type={this.props.type} key='arrayItem.name'/>
     })
 
-    return (
-      <div className='display-container'>
-        <button className='add-btn'> { btnName } <i className="far fa-plus-square"></i></button>
-        <Schedule/>
-        <div className='card-area'> { info } </div>
-      </div>
-    )
+    if(this.state.toggleForm) {
+      return (
+        <div className='display-container'>
+          <button onClick={() => this.showForm()} className='add-btn'> Close Form <i className="far fa-plus-square"></i></button>
+          <Schedule type={this.props.type}/>
+          <div className='card-area'> { info } </div>
+        </div>
+      )
+    } else {
+      return(
+        <div className='display-container'>
+          <button onClick={() => this.showForm()} className='add-btn'> { btnName } <i className="far fa-plus-square"></i></button>
+          <div className='card-area'> { info } </div>
+        </div>
+      )
+    }
   }
 
   render () {
     let url
     let btnName
-    let responseArray
+    let responseArray    
 
     switch (this.props.type) {
       case 'profile' :
