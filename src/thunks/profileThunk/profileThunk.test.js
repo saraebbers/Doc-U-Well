@@ -1,5 +1,5 @@
 import { isLoading, hasErrored, getProfile } from '../../actions/index';
-import { getProfileThunk } from './getProfileThunk.js';
+import { getProfileThunk } from './profileThunk.js';
 
 describe('getProfileThunk', () => {
   let mockUrl
@@ -29,7 +29,7 @@ mockProfile = [{blood: 'A+', height: '5,7', weight: '170', bps: '120', bpd: '80'
   })
 
   it('should dispatch isLoading action with false value if the response comes back ok', async () => {
-    window.fetch = jest.fn().mockImplementation(() => 
+    window.fetch = jest.fn().mockImplementation(() =>
       Promise.resolve({
         ok: true
       }))
@@ -39,7 +39,7 @@ mockProfile = [{blood: 'A+', height: '5,7', weight: '170', bps: '120', bpd: '80'
   })
 
     it('should dispatch getProfile action', async () => {
-    window.fetch = jest.fn().mockImplementation(() => 
+    window.fetch = jest.fn().mockImplementation(() =>
     Promise.resolve({
       ok: true,
       json: () => Promise.resolve({
