@@ -1,5 +1,5 @@
 import { isLoading, hasErrored, getInsurance } from '../../actions/index';
-import { getAllInsuranceThunk } from './insuranceThunk.js';
+import { getAllInsuranceThunk } from './getInsuranceThunk.js';
 
 describe('getAllInsuranceThunk', () => {
   let mockUrl

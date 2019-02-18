@@ -7,6 +7,8 @@ import { connect } from 'react-redux';
 import { apiKey } from '../../utils/apiKey'
 import { getAllAppointmentsThunk } from '../../thunks/appointmentThunk/getAppointmentsThunk'
 import { getAllProvidersThunk } from '../../thunks/providerThunk/getProvidersThunk'
+import { getAllInsuranceThunk } from '../../thunks/insuranceThunk/getInsuranceThunk'
+import { getProfileThunk } from '../../thunks/profileThunk/getProfileThunk'
 
 class Display extends Component {
   constructor() {
@@ -20,12 +22,12 @@ class Display extends Component {
     this.setState({toggleForm: !this.state.toggleForm})
   }
 
-  componentDidMount () { 
+  componentDidMount () {
     const { getAllProviders, getAllAppointments, getProfile, getAllInsurance } = this.props
     getAllProviders('https://my-health-tracker.herokuapp.com/api/v1/providers')
     getAllAppointments('https://my-health-tracker.herokuapp.com/api/v1/appointments')
-    // this.props.getProfile(url)
-    // this.props.getAllInsurance(url)
+    getProfile('https://my-health-tracker.herokuapp.com/api/v1/profiles')
+    getAllInsurance('https://my-health-tracker.herokuapp.com/api/v1/insurances')
   }
 
   returnJsx (btnName, responseArray) {
@@ -98,12 +100,8 @@ const mapStateToProps = (state) => {
 export const mapDispatchToProps = (dispatch) => ({
   getAllAppointments: (url) => dispatch(getAllAppointmentsThunk(url)),
   getAllProviders: (url) => dispatch(getAllProvidersThunk(url)),
-  // getAllInsurance: (url => {
-  //   dispatch(getAllInsuranceThunk(url))
-  // }),
-  // getAllProfile: (url => {
-  //   dispatch(GetAllProfileThunk(url))
-  // }),
+  getAllInsurance: (url) => dispatch(getAllInsuranceThunk(url)),
+  getProfile: (url) => dispatch(getProfileThunk(url)),
 })
 
 Display.propTypes = {

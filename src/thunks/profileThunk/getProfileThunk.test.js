@@ -1,5 +1,5 @@
 import { isLoading, hasErrored, getProfile } from '../../actions/index';
-import { getProfileThunk } from './profileThunk.js';
+import { getProfileThunk } from './getProfileThunk.js';
 
 describe('getProfileThunk', () => {
   let mockUrl
