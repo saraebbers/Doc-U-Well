@@ -7,7 +7,7 @@ describe('getProvidersThunk', () => {
   let mockProviders
 
   beforeEach(() => {
-    mockUrl = 'https://my-health-tracker.herokuapp.com/api/v1/appointments'
+    mockUrl = 'https://my-health-tracker.herokuapp.com/api/v1/providers'
     mockDispatch = jest.fn()
     mockProviders = [{name: 'DDS. Bob FeelGood', clinic: 'Green Clinic', address: '123 Red Road, Greenville, SC 12345', phone: '234-234-2313', speciality: 'Cardio'}, {name: 'Dr. Sue Happy', clinic: 'Red Clinic', address: '4444 Shadow Lane, Daytona, FL 78987', phone: '674-234-6783', speciality: 'Orthodontics'} ]
   })
