@@ -3,6 +3,12 @@ import '../../index.scss';
 import PropTypes from 'prop-types';
 import Card from '../Card/Card'
 import Schedule from '../../components/Schedule/Schedule'
+import { connect } from 'react-redux';
+import { apiKey } from '../../utils/apiKey'
+import { getAllAppointmentsThunk } from '../../thunks/appointmentThunk/getAppointmentsThunk'
+import { getAllProvidersThunk } from '../../thunks/providerThunk/getProvidersThunk'
+
+
 
 
 class Display extends Component {
@@ -43,9 +49,10 @@ class Display extends Component {
   render () {
     let url
     let btnName
-    let responseArray    
+    let responseArray
+    const { type, getAllProviders } = this.props
 
-    switch (this.props.type) {
+    switch (type) {
       case 'profile' :
         url = 'url to get profile'
         // await this.props.fetchProfile(url)
@@ -61,10 +68,10 @@ class Display extends Component {
         return this.returnJsx(btnName, responseArray)
 
       case 'providers' :
-        url = 'url for get all providers'
-        // await this.props.fetchProviders(url)
+        url = 'https://my-health-tracker.herokuapp.com/api/v1/providers'
+                // await this.props.fetchProviders(url)
         btnName = 'Add Provider'
-        responseArray = [{name: 'DDS. Bob FeelGood', clinic: 'Green Clinic', address: '123 Red Road, Greenville, SC 12345', phone: '234-234-2313', speciality: 'Cardio'}, {name: 'Dr. Sue Happy', clinic: 'Red Clinic', address: '4444 Shadow Lane, Daytona, FL 78987', phone: '674-234-6783', speciality: 'Orthodontics'} ]
+        responseArray = getAllProviders(url)
         return this.returnJsx(btnName, responseArray)
 
       case 'insurance' :
@@ -80,8 +87,34 @@ class Display extends Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    appointment: state.appointments,
+    provider: state.profile,
+    insurance: state.insurance,
+    profile: state.profile,
+    isLoading: state.isLoading,
+    errorMessage: state.errorMessage,
+    }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  getAllAppointments: (url => {
+    dispatch(getAllAppointmentsThunk(url))
+  }),
+  getAllProviders: (url => {
+    dispatch(getAllProvidersThunk(url))
+  }),
+  // getAllInsurance: (url => {
+  //   dispatch(getAllInsuranceThunk(url))
+  // }),
+  // getAllProfile: (url => {
+  //   dispatch(GetAllProfileThunk(url))
+  // }),
+})
+
 Display.propTypes = {
   type: PropTypes.string
 }
 
-export default Display;
+export default connect(mapStateToProps, mapDispatchToProps)(Display);

@@ -13,8 +13,18 @@ export const addAppointment = (appointmentDetails) => ({
   appointmentDetails
 })
 
+export const getAppointments = (appointmentDetails) => ({
+  type: 'GET_APPOINTMENTS',
+  appointmentDetails
+})
+
 export const addProvider = (providerDetails) => ({
   type: 'ADD_PROVIDER',
+  providerDetails
+})
+
+export const getProviders = (providerDetails) => ({
+  type: 'GET_PROVIDERS',
   providerDetails
 })
 
