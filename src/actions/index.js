@@ -33,7 +33,17 @@ export const addInsurance = (insuranceDetails) => ({
   insuranceDetails
 })
 
+export const getInsurance = (insuranceDetails) => ({
+  type: 'GET_INSURANCE',
+  insuranceDetails
+})
+
 export const addProfile = (profileDetails) => ({
   type: 'ADD_PROFILE',
+  profileDetails
+})
+
+export const getProfile = (profileDetails) => ({
+  type: 'GET_PROFILE',
   profileDetails
 })
