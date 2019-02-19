@@ -3,7 +3,7 @@ export const insuranceReducer = (state = [], action) => {
     case 'ADD_INSURANCE' :
       return [...state, action.insuranceDetails]
     case 'GET_INSURANCE' :
-      return [...state, action.insuranceDetails]
+      return [...state, ...action.insuranceDetails]
     default:
       return state
   }

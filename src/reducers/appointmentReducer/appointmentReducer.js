@@ -3,7 +3,7 @@ export const appointmentReducer = (state = [], action) => {
     case 'ADD_APPOINTMENT' :
       return [...state, action.appointmentDetails]
     case 'GET_APPOINTMENTS' :
-      return [...state, action.appointmentDetails]
+      return [...state, ...action.appointmentDetails]
     default:
       return state
   }

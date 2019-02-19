@@ -22,7 +22,7 @@ class Display extends Component {
     this.setState({toggleForm: !this.state.toggleForm})
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const { getAllProviders, getAllAppointments, getProfile, getAllInsurance } = this.props
     getAllProviders('https://my-health-tracker.herokuapp.com/api/v1/providers')
     getAllAppointments('https://my-health-tracker.herokuapp.com/api/v1/appointments')
@@ -31,7 +31,6 @@ class Display extends Component {
   }
 
   returnJsx (btnName, responseArray) {
-    console.log(responseArray)
     let info = responseArray.map(arrayItem => {
       return <Card {...arrayItem} type={this.props.type} key='arrayItem.id'/>
     })
