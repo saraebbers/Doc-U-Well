@@ -15,7 +15,8 @@ class Home extends Component {
   async handleSubmit() {
     const { email, password } = this.state
     const newUser = {...this.state}
-    await this.handleNewUser(newUser)
+    const url = 'https://my-health-tracker.herokuapp.com/api/v1/users'
+    await this.handleNewUser(url, newUser)
   }
 
   handleNewUser(newUser){

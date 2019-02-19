@@ -47,3 +47,8 @@ export const getProfile = (profileDetails) => ({
   type: 'GET_PROFILE',
   profileDetails
 })
+
+export const postUser = (userDetails) => ({
+  type: 'POST_USER',
+  userDetails
+})
