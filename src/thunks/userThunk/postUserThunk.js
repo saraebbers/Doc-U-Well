@@ -10,7 +10,7 @@ export const postUserThunk = (url, newUser) => {
         method: 'POST',
         body: JSON.stringify(newUser),
         headers: {
-          'content-type': 'applcation/json'
+          'content-type': 'application/json'
         }
       })
       if(!response.ok) {

@@ -17,6 +17,7 @@ class Home extends Component {
     const { email, password } = this.state
     const newUser = {...this.state}
     const url = 'https://my-health-tracker.herokuapp.com/api/v1/users'
+    console.log('newUser', newUser)
     await this.props.postUser(url, newUser)
     await this.handleNewUser(url, newUser)
   }
