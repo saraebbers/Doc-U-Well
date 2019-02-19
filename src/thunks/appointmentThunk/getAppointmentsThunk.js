@@ -6,11 +6,7 @@ export const getAllAppointmentsThunk = (url) => {
   return async (dispatch) => {
     try {
       dispatch(isLoading(true))
-      const payload = {
-        api_key: `${apiKey}`,
-        profile_id: '1'
-      }
-      const response = await fetch(url)
+      const response = await fetch(`${url}?api_key=${apiKey}&profile_id=1`)
       if(!response.ok) {
         throw Error(response.statusText)
       }
