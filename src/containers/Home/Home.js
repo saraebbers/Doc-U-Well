@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import '../../index.scss';
 import PropTypes from 'prop-types';
-
+import { connect } from 'react-redux';
+import { postUserThunk } from '../../thunks/userThunk/postUserThunk'
 
 class Home extends Component {
   constructor(){
@@ -16,6 +17,7 @@ class Home extends Component {
     const { email, password } = this.state
     const newUser = {...this.state}
     const url = 'https://my-health-tracker.herokuapp.com/api/v1/users'
+    await this.props.postUser(url, newUser)
     await this.handleNewUser(url, newUser)
   }
 
@@ -49,4 +51,20 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+    isLoading: state.isLoading,
+    errorMessage: state.errorMessage,
+    }
+}
+
+export const mapDispatchToProps = (dispatch) => ({
+  postUser: (url, newUser) => dispatch(postUserThunk(url, newUser)),
+})
+
+Home.propTypes = {
+  type: PropTypes.string
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
