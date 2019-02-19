@@ -23,18 +23,18 @@ class Display extends Component {
   }
 
   componentDidMount() {
-    const { getAllProviders, getAllAppointments, getProfile, getAllInsurance, providers, insurance, profile, appointments } = this.props
+    const { getAllProviders, getAllAppointments, getProfile, getAllInsurance, providers, insurance, profile, appointments, user } = this.props
     if (!providers.length){
       getAllProviders('https://my-health-tracker.herokuapp.com/api/v1/providers')
     }
     if (!appointments.length){
-      getAllAppointments('https://my-health-tracker.herokuapp.com/api/v1/appointments')
+      getAllAppointments('https://my-health-tracker.herokuapp.com/api/v1/appointments', user)
     }
     if (!profile.length){
-      getProfile('https://my-health-tracker.herokuapp.com/api/v1/profiles')
+      getProfile('https://my-health-tracker.herokuapp.com/api/v1/profiles', user)
     }
     if (!insurance.length){
-      getAllInsurance('https://my-health-tracker.herokuapp.com/api/v1/insurances')
+      getAllInsurance('https://my-health-tracker.herokuapp.com/api/v1/insurances', user)
     }
   }
 
@@ -102,6 +102,7 @@ const mapStateToProps = (state) => {
     profile: state.profile,
     isLoading: state.isLoading,
     errorMessage: state.errorMessage,
+    user: state.user,
     }
 }
 

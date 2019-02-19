@@ -1,5 +1,4 @@
-import { isLoading, hasErrored, postUser } from '../../actions/index'
-import { apiKey } from '../../utils/apiKey';
+import { isLoading, hasErrored, loginUser } from '../../actions/index'
 
 
 export const postUserThunk = (url, newUser) => {
@@ -18,7 +17,7 @@ export const postUserThunk = (url, newUser) => {
       }
       dispatch(isLoading(false))
       const userDetails = await response.json()
-      dispatch(postUser(userDetails.data))
+      dispatch(loginUser(userDetails.data))
     } catch(error) {
       dispatch(hasErrored(error.message))
     }

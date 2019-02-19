@@ -8,6 +8,7 @@ import { errorReducer } from './errorReducer/errorReducer'
 import { userReducer } from './userReducer/userReducer'
 
 
+
 const rootReducer = combineReducers({
   appointments: appointmentReducer,
   profile: profileReducer,

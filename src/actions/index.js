@@ -48,13 +48,8 @@ export const getProfile = (profileDetails) => ({
   profileDetails
 })
 
-export const postUser = (userDetails) => ({
-  type: 'POST_USER',
-  userDetails
-})
-
-export const getUser = (userDetails) => ({
-  type: 'GET_USER',
+export const loginUser = (userDetails) => ({
+  type: 'LOGIN_USER',
   userDetails
 })
 

@@ -1,12 +1,11 @@
 import { isLoading, hasErrored, getAppointments } from '../../actions/index'
-import { apiKey } from '../../utils/apiKey';
 
 
-export const getAllAppointmentsThunk = (url) => {
+export const getAllAppointmentsThunk = (url, user) => {
   return async (dispatch) => {
     try {
       dispatch(isLoading(true))
-      const response = await fetch(`${url}?api_key=${apiKey}&profile_id=1`)
+      const response = await fetch(`${url}?api_key=${user.attributes.api_key}&profile_id=${user.id}`)
       if(!response.ok) {
         throw Error(response.statusText)
       }
