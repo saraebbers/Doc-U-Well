@@ -28,17 +28,25 @@ class Card extends Component {
         let currentProvider = this.props.providers.find(provider => {
           return provider.id == provider_id
         })
-        const date = new Date(datetime).toString()
+        const options = {
+          weekday: 'long',
+          month: 'long',
+          day: 'numeric',
+          hour: '2-digit',
+          minute: '2-digit',
+          year: 'numeric',
+        }
+        const date = new Date(datetime * 1000).toLocaleString('en-US', options);
 
         return(
           <div className='card-container'>
             <i className="fas fa-trash-alt"></i>
             <i className="fas fa-edit"></i>
-            <h3>Appointment Information</h3>
-            <p> Your next appointment is on: {date}</p>
-            <p>With: { currentProvider.attributes.given_name } { currentProvider.attributes.surname }</p>
-            <p>At: { currentProvider.attributes.street_address } { currentProvider.attributes.city } { currentProvider.attributes.state } { currentProvider.attributes.zip }</p>
-            <p> To contact provider call: { currentProvider.attributes.phone } </p>
+            <h3> Your Next Appointment</h3>
+            <h4> {date} </h4>
+            <p> { currentProvider.attributes.given_name } { currentProvider.attributes.surname }</p>
+            <p> { currentProvider.attributes.street_address } { currentProvider.attributes.city } { currentProvider.attributes.state } { currentProvider.attributes.zip }</p>
+            <p> { currentProvider.attributes.phone } </p>
 
           </div>
         )
@@ -49,11 +57,10 @@ class Card extends Component {
             <i className="fas fa-trash-alt"></i>
             <i className="fas fa-edit"></i>
             <h3>Provider Information</h3>
-            <p>{ given_name } { surname }</p>
+            <p><h4>{ given_name } { surname }</h4></p>
             <p>{ street_address } { city } { state } { zip }</p>
             <p>{ phone } </p>
           </div>
-
         )
       case 'insurance' :
         const { card, image } = this.props
