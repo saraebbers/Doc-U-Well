@@ -6,7 +6,7 @@ export const getProfileThunk = (url) => {
   return async (dispatch) => {
     try {
       dispatch(isLoading(true))
-      const response = await fetch(`${url}?api_key=${apiKey}`))
+      const response = await fetch(`${url}?api_key=${apiKey}`)
       if(!response.ok) {
         throw Error(response.statusText)
       }
