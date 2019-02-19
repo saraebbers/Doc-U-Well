@@ -29,7 +29,7 @@ describe('getProvidersThunk', () => {
   })
 
   it('should dispatch isLoading action with false value if the response comes back ok', async () => {
-    window.fetch = jest.fn().mockImplementation(() => 
+    window.fetch = jest.fn().mockImplementation(() =>
       Promise.resolve({
         ok: true
       }))
@@ -39,11 +39,11 @@ describe('getProvidersThunk', () => {
   })
 
     it('should dispatch getAllAppointments action', async () => {
-    window.fetch = jest.fn().mockImplementation(() => 
+    window.fetch = jest.fn().mockImplementation(() =>
     Promise.resolve({
       ok: true,
       json: () => Promise.resolve({
-        results: mockProviders
+        data: mockProviders
       })
     }))
     const thunk = getAllProvidersThunk(mockUrl)
