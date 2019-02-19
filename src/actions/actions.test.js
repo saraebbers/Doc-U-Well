@@ -102,4 +102,34 @@ describe('actions', () => {
     expect(result).toEqual(expected)
   })
 
+  it('getUser should take in the payload and return an object with a type of GET_USER', () => {
+    const userDetails = ''
+    const expected = {
+      type: 'GET_USER',
+      userDetails
+    }
+    const result = actions.getUser(userDetails)
+    expect(result).toEqual(expected)
+  })
+
+  it('postUser should take in the payload and return an object with a type of POST_USER', () => {
+    const userDetails = ''
+    const expected = {
+      type: 'POST_USER',
+      userDetails
+    }
+    const result = actions.postUser(userDetails)
+    expect(result).toEqual(expected)
+  })
+
+  it('logoutUser should take in the payload and return an object with a type of LOGOUT_USER', () => {
+    const userDetails = ''
+    const expected = {
+      type: 'LOGOUT_USER',
+      userDetails
+    }
+    const result = actions.logoutUser(userDetails)
+    expect(result).toEqual(expected)
+  })
+
 })

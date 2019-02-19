@@ -2,7 +2,7 @@ import { isLoading, hasErrored, postUser } from '../../actions/index'
 import { apiKey } from '../../utils/apiKey';
 
 
-export const postSignupThunk = (url, newUser) => {
+export const postUserThunk = (url, newUser) => {
   return async (dispatch) => {
     try {
       dispatch(isLoading(true))

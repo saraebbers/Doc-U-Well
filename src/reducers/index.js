@@ -5,7 +5,7 @@ import { providersReducer } from './providersReducer/providersReducer'
 import { insuranceReducer } from './insuranceReducer/insuranceReducer'
 import { isLoadingReducer } from './isLoadingReducer/isLoadingReducer'
 import { errorReducer } from './errorReducer/errorReducer'
-
+import { userReducer } from './userReducer/userReducer'
 
 
 const rootReducer = combineReducers({
@@ -15,6 +15,7 @@ const rootReducer = combineReducers({
   insurance: insuranceReducer,
   isLoading: isLoadingReducer,
   errorMessage: errorReducer,
+  user: userReducer,
 })
 
 export default rootReducer
