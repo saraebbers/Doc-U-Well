@@ -43,7 +43,7 @@ mockProfile = [{blood: 'A+', height: '5,7', weight: '170', bps: '120', bpd: '80'
     Promise.resolve({
       ok: true,
       json: () => Promise.resolve({
-        results: mockProfile
+        data: mockProfile
       })
     }))
     const thunk = getProfileThunk(mockUrl)

@@ -10,16 +10,28 @@ class Card extends Component {
 
     switch (this.props.type) {
       case 'profile' :
-        const { blood, height, weight, bps, bpd, hr } = this.props
+        const { dob, height, weight, bp_systolic, bp_diastolic, heart_rate, blood_type } = this.props.attributes
+        const { id } = this.props
+        let currentProfile = this.props.profile.find(file => {
+          return file.id == id
+        })
+        const profileName = `${currentProfile.attributes.given_name} ${currentProfile.attributes.surname}`.toUpperCase()
+        const dobOptions = {
+          month: 'long',
+          day: 'numeric',
+          year: 'numeric',
+        }
+        const birthDate = new Date(dob).toLocaleString('en-US', dobOptions)
+
         return(
           <div className='card-container'>
-            <h3>General Information</h3>
-            <p>Blood type: { blood } </p>
-            <p>Height: { height } </p>
+            <h3> { profileName }</h3>
+            <h4> DOB: { birthDate }</h4>
+            <p>Blood type: { blood_type } </p>
+            <p>Height: { height } inches </p>
             <p>Weight: { weight } lbs</p>
-            <p>BloodPressure: { bps } / { bpd } </p>
-            <p>Heart Rate: { hr } bpm</p>
-            <p>Last Updated: can we get this?</p>
+            <p>Blood Pressure: { bp_systolic } / { bp_diastolic } </p>
+            <p>Heart Rate: { heart_rate } bpm</p>
           </div>
         )
       case 'appointments' :
@@ -41,7 +53,8 @@ class Card extends Component {
         return(
           <div className='card-container'>
             <i className="fas fa-trash-alt"></i>
-            <h3> APPOINTMENT WITH {providerName} </h3>
+            <h3> APPOINTMENT WITH</h3>
+            <h3> {providerName} </h3>
             <h4> {date} </h4>
             <p> { currentProvider.attributes.street_address } { currentProvider.attributes.city } { currentProvider.attributes.state } { currentProvider.attributes.zip }</p>
             <p> { currentProvider.attributes.phone } </p>
