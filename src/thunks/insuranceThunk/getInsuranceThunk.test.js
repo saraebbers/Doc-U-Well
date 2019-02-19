@@ -43,7 +43,7 @@ describe('getAllInsuranceThunk', () => {
     Promise.resolve({
       ok: true,
       json: () => Promise.resolve({
-        results: mockInsurance
+        data: mockInsurance
       })
     }))
     const thunk = getAllInsuranceThunk(mockUrl)

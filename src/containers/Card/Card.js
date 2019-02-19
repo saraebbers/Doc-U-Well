@@ -13,7 +13,6 @@ class Card extends Component {
         const { blood, height, weight, bps, bpd, hr } = this.props
         return(
           <div className='card-container'>
-            <i className="fas fa-edit"></i>
             <h3>General Information</h3>
             <p>Blood type: { blood } </p>
             <p>Height: { height } </p>
@@ -37,39 +36,40 @@ class Card extends Component {
           year: 'numeric',
         }
         const date = new Date(datetime * 1000).toLocaleString('en-US', options);
+        const providerName = `${ currentProvider.attributes.given_name } ${ currentProvider.attributes.surname }`.toUpperCase()
 
         return(
           <div className='card-container'>
             <i className="fas fa-trash-alt"></i>
-            <i className="fas fa-edit"></i>
-            <h3> Your Next Appointment</h3>
+            <h3> APPOINTMENT WITH {providerName} </h3>
             <h4> {date} </h4>
-            <p> { currentProvider.attributes.given_name } { currentProvider.attributes.surname }</p>
             <p> { currentProvider.attributes.street_address } { currentProvider.attributes.city } { currentProvider.attributes.state } { currentProvider.attributes.zip }</p>
             <p> { currentProvider.attributes.phone } </p>
 
           </div>
         )
       case 'providers' :
-        const { given_name, surname, street_address, city, state, zip, phone  } = this.props.attributes
+        const { specialty, given_name, surname, street_address, city, state, zip, phone  } = this.props.attributes
+        // const specialtyType = specialty.toUpperCase()
+        // <h3> {specialtyType} PROVIDER </h3>
         return(
             <div className='card-container'>
             <i className="fas fa-trash-alt"></i>
-            <i className="fas fa-edit"></i>
-            <h3>Provider Information</h3>
-            <p><h4>{ given_name } { surname }</h4></p>
+            <h4> { given_name } { surname }</h4>
             <p>{ street_address } { city } { state } { zip }</p>
             <p>{ phone } </p>
           </div>
         )
       case 'insurance' :
-        const { card, image } = this.props
+        const { insurance_type, carrier, id_number, group_number, phone_number } = this.props.attributes
+        const insuranceType = insurance_type.toUpperCase()
         return(
           <div className='card-container'>
             <i className="fas fa-trash-alt"></i>
-            <h3>Insurance Card</h3>
-            <p>{ card } </p>
-            <div className='image-holder'> {image} </div>
+            <h3> { insuranceType } CARD</h3>
+            <h4> { carrier } Policy Number: { id_number } </h4>
+            <p> Group: { group_number } </p>
+            <p> { carrier } Phone Number: { phone_number } </p>
           </div>
         )
       default:
