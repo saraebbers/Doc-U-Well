@@ -40,7 +40,6 @@ class Display extends Component {
 
   returnJsx (btnName, responseArray) {
     let info = responseArray.map(arrayItem => {
-      console.log('arrayItem', arrayItem)
       return <Card {...arrayItem} type={this.props.type} key='arrayItem.id'/>
     })
 
