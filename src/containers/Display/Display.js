@@ -23,11 +23,19 @@ class Display extends Component {
   }
 
   componentDidMount() {
-    const { getAllProviders, getAllAppointments, getProfile, getAllInsurance } = this.props
-    getAllProviders('https://my-health-tracker.herokuapp.com/api/v1/providers')
-    getAllAppointments('https://my-health-tracker.herokuapp.com/api/v1/appointments')
-    getProfile('https://my-health-tracker.herokuapp.com/api/v1/profiles')
-    getAllInsurance('https://my-health-tracker.herokuapp.com/api/v1/insurances')
+    const { getAllProviders, getAllAppointments, getProfile, getAllInsurance, providers, insurance, profile, appointments } = this.props
+    if (!providers.length){
+      getAllProviders('https://my-health-tracker.herokuapp.com/api/v1/providers')
+    }
+    if (!appointments.length){
+      getAllAppointments('https://my-health-tracker.herokuapp.com/api/v1/appointments')
+    }
+    if (!profile.length){
+      getProfile('https://my-health-tracker.herokuapp.com/api/v1/profiles')
+    }
+    if (!insurance.length){
+      getAllInsurance('https://my-health-tracker.herokuapp.com/api/v1/insurances')
+    }
   }
 
   returnJsx (btnName, responseArray) {
