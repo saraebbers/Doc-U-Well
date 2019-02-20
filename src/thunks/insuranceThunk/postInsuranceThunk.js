@@ -19,7 +19,6 @@ export const addInsuranceThunk = (user, payload) => {
       })
       if(!response.ok) {
         throw Error(response.statusText)
-        console.log('error', response.statusText)
       }
       dispatch(isLoading(false))
       const insuranceDetails = await response.json()

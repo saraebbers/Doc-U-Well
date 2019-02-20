@@ -91,6 +91,13 @@ class Card extends Component {
             <p> { carrier } Phone Number: { phone_number } </p>
           </div>
         )
+      case 'other' :
+        const { message } = this.props
+        return (
+          <div className='card-container'>
+            <p> { message} </p>
+          </div>
+          )
       default:
         return ('hit card default')
     }
