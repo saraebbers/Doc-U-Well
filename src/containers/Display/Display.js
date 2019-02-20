@@ -39,9 +39,14 @@ class Display extends Component {
   }
 
   returnJsx (btnName, responseArray) {
-    let info = responseArray.map(arrayItem => {
-      return <Card {...arrayItem} type={this.props.type} key='arrayItem.id'/>
-    })
+    let info
+    if(responseArray.length){
+      info = responseArray.map(arrayItem => {
+        return <Card {...arrayItem} type={this.props.type} key='arrayItem.id'/>
+      })
+    } else {
+      info = 'There is no information to display, please log-in and/or save information' 
+    } 
 
     if(this.state.toggleForm) {
       return (
