@@ -82,7 +82,7 @@ class Schedule extends Component {
 
   render() {
     let formData
-    const { blood, height, weight, bps, bpd, hr, date, time, ap, type, provider, clinic, phone, address, kind, specialty, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes} = this.state
+    const { blood, height, weight, bps, bpd, hr, date, time, ap, type, provider, providerFirst, providerLast, phone, streetAddress, cityAddress, stateAddress, zipAddress, kind, specialty, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes} = this.state
 
     switch (this.props.type) {
       case 'profile' :
@@ -118,13 +118,19 @@ class Schedule extends Component {
       case 'providers' :
         formData = (
           <div className='form-info'>
-            Provider Name: <input placeholder='Provider Name' value={provider} onChange={(event) => this.setState({provider: event.target.value})}/>
+            Provider First Name: <input placeholder='Provider First Name' value={providerFirst} onChange={(event) => this.setState({providerFirst: event.target.value})}/>
             <br/>
-            Clinic Name: <input placeholder='Clinic Name' value={clinic} onChange={(event) => this.setState({clinic: event.target.value})}/> <input placeholder='am/pm' value={ap} onChange={(event) => this.setState({ap: event.target.value})}/>
+            Provider Last Name: <input placeholder='Provider Last Name' value={providerLast} onChange={(event) => this.setState({providerLast: event.target.value})}/>
             <br/>
             Phone Number: <input placeholder='Phone Number' value={phone} onChange={(event) => this.setState({phone: event.target.value})}/>
             <br/>
-            Address: <input placeholder='Address' value={address} onChange={(event) => this.setState({address: event.target.value})}/>
+            Street Address: <input placeholder='Street Address' value={streetAddress} onChange={(event) => this.setState({streetAddress: event.target.value})}/>
+            <br/>
+            City: <input placeholder='City' value={cityAddress} onChange={(event) => this.setState({cityAddress: event.target.value})}/>
+            <br/>
+            State: <input placeholder='State' value={stateAddress} onChange={(event) => this.setState({stateAddress: event.target.value})}/>
+            <br/>
+            Zip: <input placeholder='Zip Code' value={zipAddress} onChange={(event) => this.setState({zipAddress: event.target.value})}/>
             <br/>
             Specialty: <input placeholder='Specialty' value={specialty} onChange={(event) => this.setState({specialty: event.target.value})}/>
           </div>
