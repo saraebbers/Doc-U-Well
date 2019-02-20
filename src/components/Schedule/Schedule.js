@@ -47,7 +47,9 @@ class Schedule extends Component {
       carrier: '',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleChangeSelect = this.handleChangeSelect.bind(this);
+    this.handleChangeInsurance = this.handleChangeInsurance.bind(this);
+    this.handleChangeState = this.handleChangeState.bind(this);
+    this.handleChangeSpeciality = this.handleChangeSpeciality.bind(this);
   }
 
   handleChange(date) {
@@ -56,15 +58,23 @@ class Schedule extends Component {
     });
   }
 
-  handleChangeSelect(event) {
+  handleChangeInsurance(event) {
     this.setState({insuranceType: event.target.value})
+  }
+
+  handleChangeState(event) {
+    this.setState({state: event.target.value})
+  }
+
+  handleChangeSpeciality(event) {
+    this.setState({speciality: event.target.value})
   }
 
   handleSubmit() {
     const { user, type, handleProfileSubmit, handleAppointmentSubmit, handleProviderSubmit, handleInsuranceSubmit } = this.props
-    const { userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, startDate, ap, provider, providerFirst, providerLast, phone, streetAddress, city, state, zip, kind, specialty, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes } = this.state
+    const { userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, startDate, ap, provider, providerFirst, providerLast, phone, streetAddress, city, state, zip, kind, speciality, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes } = this.state
     let payload
-    
+
     switch (type) {
       case 'profile' :
         payload = {userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, provider}
@@ -80,9 +90,18 @@ class Schedule extends Component {
         this.setState({startDate: new Date(), kind: '', provider: '', notes: ''})
         break
       case 'providers' :
-        payload = {providerFirst, providerLast, phone, streetAddress, city, state, zip, specialty}
+        payload = {
+          given_name: providerFirst,
+          surname: providerLast,
+          phone: phone,
+          street_address: streetAddress,
+          city: city,
+          state: state,
+          zip: zip,
+          speciality: speciality,
+          api_key: user.attributes.api_key}
         handleProviderSubmit(user, payload)
-        this.setState({providerFirst: '', providerLast: '', phone: '', streetAddress: '', city: '', state: '', zip: '', specialty: ''})
+        this.setState({providerFirst: '', providerLast: '', phone: '', streetAddress: '', city: '', state: '', zip: '', speciality: ''})
         break
       case 'insurance' :
         payload = {
@@ -181,11 +200,98 @@ class Schedule extends Component {
             <br/>
             City: <input placeholder='City' value={city} onChange={(event) => this.setState({city: event.target.value})}/>
             <br/>
-            State: <input placeholder='State' value={state} onChange={(event) => this.setState({state: event.target.value})}/>
+            <label>State:
+              <select value={this.state.state} onChange={this.handleChangeState}>
+                <option value="AK">AK</option>
+                <option value="AL">AL</option>
+                <option value="AR">AR</option>
+                <option value="AZ">AZ</option>
+                <option value="CA">CA</option>
+                <option value="CO">CO</option>
+                <option value="CT">CT</option>
+                <option value="DE">DE</option>
+                <option value="FL">FL</option>
+                <option value="GA">GA</option>
+                <option value="HI">HI</option>
+                <option value="IA">IA</option>
+                <option value="ID">ID</option>
+                <option value="IL">IL</option>
+                <option value="IN">IN</option>
+                <option value="KS">KS</option>
+                <option value="KY">KY</option>
+                <option value="LA">LA</option>
+                <option value="MA">MA</option>
+                <option value="MD">MD</option>
+                <option value="ME">ME</option>
+                <option value="MI">MI</option>
+                <option value="MN">MN</option>
+                <option value="MO">MO</option>
+                <option value="MS">MS</option>
+                <option value="MT">MT</option>
+                <option value="NC">NC</option>
+                <option value="ND">ND</option>
+                <option value="NE">NE</option>
+                <option value="NH">NH</option>
+                <option value="NJ">NJ</option>
+                <option value="NM">NM</option>
+                <option value="NV">NV</option>
+                <option value="NY">NY</option>
+                <option value="OH">OH</option>
+                <option value="OK">OK</option>
+                <option value="OR">OR</option>
+                <option value="PA">PA</option>
+                <option value="RI">RI</option>
+                <option value="SC">SC</option>
+                <option value="SD">SD</option>
+                <option value="TN">TN</option>
+                <option value="TX">TX</option>
+                <option value="UT">UT</option>
+                <option value="VA">VA</option>
+                <option value="VT">VT</option>
+                <option value="WA">WA</option>
+                <option value="WI">WI</option>
+                <option value="WV">WV</option>
+                <option value="WY">WY</option>
+              </select>
+            </label>
             <br/>
             Zip: <input placeholder='Zip Code' value={zip} onChange={(event) => this.setState({zip: event.target.value})}/>
             <br/>
-            Specialty: <input placeholder='Specialty' value={specialty} onChange={(event) => this.setState({specialty: event.target.value})}/>
+            <label>Speciality:
+              <select value={this.state.speciality} onChange={this.handleChangeSpeciality}>
+                <option value="allergist">allergist</option>
+                <option value="anesthesiologist">anesthesiologist</option>
+                <option value="cardiologist">cardiologist</option>
+                <option value="dentist">dentist</option>
+                <option value="dermatologist">dermatologist</option>
+                <option value="endocrinologist">endocrinologist</option>
+                <option value="general_practitioner">general_practitioner</option>
+                <option value="gastroenterologist">gastroenterologist</option>
+                <option value="geneticist">geneticist</option>
+                <option value="geriatric_specialist">geriatric_specialist</option>
+                <option value="gynecologist">gynecologist</option>
+                <option value="hematologist">hematologist</option>
+                <option value="internist">internist</option>
+                <option value="massage_therapist">massage_therapist</option>
+                <option value="naturopath">naturopath</option>
+                <option value="nephrologist">nephrologist</option>
+                <option value="neurologist">neurologist</option>
+                <option value="obstetrician">obstetrician</option>
+                <option value="oncologist">oncologist</option>
+                <option value="ophthalmologist">ophthalmologist</option>
+                <option value="optometrist">optometrist</option>
+                <option value="osteopath">osteopath</option>
+                <option value="palliative">palliative</option>
+                <option value="pediatrician">pediatrician</option>
+                <option value="podiatrist">podiatrist</option>
+                <option value="psychiatrist">psychiatrist</option>
+                <option value="pulmonologist">pulmonologist</option>
+                <option value="radiologist">radiologist</option>
+                <option value="rheumatologist">rheumatologist</option>
+                <option value="surgeon">surgeon</option>
+                <option value="urologist">urologist</option>
+                </select>
+              </label>
           </div>
         )
         return this.informationSubmission(formData)
@@ -195,8 +301,8 @@ class Schedule extends Component {
           <div className='form-info'>
             Insurance Carrier: <input placeholder='Insurance Carrier' value={carrier} onChange={(event) => this.setState({carrier: event.target.value})}/>
             <br/>
-            <label>Insurance Type: 
-              <select value={this.state.insuranceType} onChange={this.handleChangeSelect}>
+            <label>Insurance Type:
+              <select value={this.state.insuranceType} onChange={this.handleChangeInsurance}>
                 <option value="medical">Medical</option>
                 <option value="dental">Dental</option>
                 <option value="vision">Vision</option>
