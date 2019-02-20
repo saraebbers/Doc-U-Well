@@ -18,6 +18,10 @@ export const getAppointments = (appointmentDetails) => ({
   appointmentDetails
 })
 
+export const clearAppointments = (appointmentDetails) => ({
+  type: 'CLEAR_APPOINTMENTS',
+  appointmentDetails
+})
 export const addProvider = (providerDetails) => ({
   type: 'ADD_PROVIDER',
   providerDetails
