@@ -49,7 +49,7 @@ class Schedule extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleChangeInsurance = this.handleChangeInsurance.bind(this);
     this.handleChangeState = this.handleChangeState.bind(this);
-    this.handleChangeSpecialty = this.handleChangeSpecialty.bind(this);
+    this.handleChangeSpeciality = this.handleChangeSpeciality.bind(this);
   }
 
   handleChange(date) {
@@ -66,13 +66,13 @@ class Schedule extends Component {
     this.setState({state: event.target.value})
   }
 
-  handleChangeSpecialty(event) {
-    this.setState({specialty: event.target.value})
+  handleChangeSpeciality(event) {
+    this.setState({speciality: event.target.value})
   }
 
   handleSubmit() {
     const { user, type, handleProfileSubmit, handleAppointmentSubmit, handleProviderSubmit, handleInsuranceSubmit } = this.props
-    const { userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, startDate, ap, provider, providerFirst, providerLast, phone, streetAddress, city, state, zip, kind, specialty, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes } = this.state
+    const { userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, startDate, ap, provider, providerFirst, providerLast, phone, streetAddress, city, state, zip, kind, speciality, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes } = this.state
     let payload
 
     switch (type) {
@@ -98,10 +98,10 @@ class Schedule extends Component {
           city: city,
           state: state,
           zip: zip,
-          specialty: specialty,
+          speciality: speciality,
           api_key: user.attributes.api_key}
         handleProviderSubmit(user, payload)
-        this.setState({providerFirst: '', providerLast: '', phone: '', streetAddress: '', city: '', state: '', zip: '', specialty: ''})
+        this.setState({providerFirst: '', providerLast: '', phone: '', streetAddress: '', city: '', state: '', zip: '', speciality: ''})
         break
       case 'insurance' :
         payload = {
@@ -257,8 +257,8 @@ class Schedule extends Component {
             <br/>
             Zip: <input placeholder='Zip Code' value={zip} onChange={(event) => this.setState({zip: event.target.value})}/>
             <br/>
-            <label>Specialty:
-              <select value={this.state.specialty} onChange={this.handleChangeSpecialty}>
+            <label>Speciality:
+              <select value={this.state.speciality} onChange={this.handleChangeSpeciality}>
                 <option value="allergist">allergist</option>
                 <option value="anesthesiologist">anesthesiologist</option>
                 <option value="cardiologist">cardiologist</option>
