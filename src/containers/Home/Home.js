@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { postUserThunk } from '../../thunks/userThunk/postUserThunk'
 import { getUserThunk } from '../../thunks/userThunk/getUserThunk'
-import { isLoading, hasErrored, logoutUser, clearAppointments } from '../../actions/index'
+import { isLoading, hasErrored, logoutUser, clearAppointments, clearInsurance, clearProfile } from '../../actions/index'
 
 
 
-class Home extends Component {
+export class Home extends Component {
   constructor(){
     super()
     this.state={
@@ -31,7 +31,7 @@ class Home extends Component {
       await getUser(url, oldUser)
       await this.resetLocalState(url, oldUser)
     } else {
-      console.log('how did you get to else')
+      return
     }
   }
 
@@ -44,8 +44,11 @@ class Home extends Component {
   }
 
   resetGlobalState(event) {
-    this.props.logoutUser()
-    this.props.clearAppointments()
+    const { logoutUser, clearAppointments, clearProfile, clearInsurance } = this.props
+    logoutUser()
+    clearAppointments()
+    clearProfile()
+    clearInsurance()
   }
 
   displayFormOrMessage() {
@@ -90,7 +93,7 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+export const mapStateToProps = (state) => {
   return {
     user: state.user,
     isLoading: state.isLoading,
@@ -102,12 +105,22 @@ export const mapDispatchToProps = (dispatch) => ({
   postUser: (url, newUser) => dispatch(postUserThunk(url, newUser)),
   getUser: (url, oldUser) => dispatch(getUserThunk(url, oldUser)),
   logoutUser: () => dispatch(logoutUser()),
-  clearAppointments: () => dispatch(clearAppointments())
-
+  clearAppointments: () => dispatch(clearAppointments()),
+  clearInsurance: () => dispatch(clearInsurance()),
+  clearProfile: () => dispatch(clearProfile())
 })
 
 Home.propTypes = {
-  type: PropTypes.string
+  type: PropTypes.string,
+  // postUser: PropType.func,
+  // getUser: PropType.func,
+  // logoutUser: PropType.func,
+  // clearAppointments: PropType.func,
+  // clearInsurance: PropType.func,
+  // clearProfile: PropType.func,
+  // user: PropType.object,
+  // isLoading: PropType.string,
+  // errorMessage: PropType.string,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

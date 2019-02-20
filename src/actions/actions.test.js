@@ -42,6 +42,16 @@ describe('actions', () => {
     expect(result).toEqual(expected)
   })
 
+  it('clearAppointments should take in the payload and return an object with a type of CLEAR_APPOINTMENTS', () => {
+    const appointmentDetails = ''
+    const expected = {
+      type: 'CLEAR_APPOINTMENTS',
+      appointmentDetails
+    }
+    const result = actions.clearAppointments(appointmentDetails)
+    expect(result).toEqual(expected)
+  })
+
   it('addProvider should take in the payload and return an object with a type of ADD_PROVIDER', () => {
     const providerDetails = ''
     const expected = {
@@ -82,6 +92,16 @@ describe('actions', () => {
     expect(result).toEqual(expected)
   })
 
+  it('clearInsurance should take in the payload and return an object with a type of CLEAR_INSURANCE', () => {
+    const insuranceDetails = ''
+    const expected = {
+      type: 'CLEAR_INSURANCE',
+      insuranceDetails
+    }
+    const result = actions.clearInsurance(insuranceDetails)
+    expect(result).toEqual(expected)
+  })
+
   it('addProfile should take in the payload and return an object with a type of ADD_PROFILE', () => {
     const profileDetails = ''
     const expected = {
@@ -99,6 +119,16 @@ describe('actions', () => {
       profileDetails
     }
     const result = actions.getProfile(profileDetails)
+    expect(result).toEqual(expected)
+  })
+
+  it('clearProfile should take in the payload and return an object with a type of CLEAR_PROFILE', () => {
+    const profileDetails = ''
+    const expected = {
+      type: 'CLEAR_PROFILE',
+      profileDetails
+    }
+    const result = actions.clearProfile(profileDetails)
     expect(result).toEqual(expected)
   })
 

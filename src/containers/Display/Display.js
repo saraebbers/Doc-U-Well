@@ -42,11 +42,19 @@ class Display extends Component {
     let info
     if(responseArray.length){
       info = responseArray.map(arrayItem => {
-        return <Card {...arrayItem} type={this.props.type} key='arrayItem.id'/>
+        return <Card {...arrayItem} type={this.props.type} key={arrayItem.type+arrayItem.id}/>
       })
-    } else {
-      info = 'There is no information to display, please log-in and/or save information' 
-    } 
+    } else if (!this.props.user.id) {
+      let loginResponses = [{message: 'Please log-in to view and save personalized information'}]
+      info =  loginResponses.map(lresponse => {
+        return <Card {...lresponse} type='other' key='1'/>
+      })
+    } else if (this.props.user.id && !responseArray.length) {
+      let noSavedResponses = [{message: 'You do not have any saved information'}]
+      info =  noSavedResponses.map(nsresponse => {
+        return <Card {...nsresponse} type='other' key='2'/>
+      })
+    }
 
     if(this.state.toggleForm) {
       return (
