@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { postUserThunk } from '../../thunks/userThunk/postUserThunk'
 import { getUserThunk } from '../../thunks/userThunk/getUserThunk'
-import { isLoading, hasErrored, logoutUser, clearAppointments, clearInsurance, clearProfile} from '../../actions/index'
+import { isLoading, hasErrored, logoutUser, clearAppointments, clearInsurance, clearProfile } from '../../actions/index'
 
 
 
-class Home extends Component {
+export class Home extends Component {
   constructor(){
     super()
     this.state={
@@ -93,7 +93,7 @@ class Home extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+export const mapStateToProps = (state) => {
   return {
     user: state.user,
     isLoading: state.isLoading,
@@ -112,15 +112,15 @@ export const mapDispatchToProps = (dispatch) => ({
 
 Home.propTypes = {
   type: PropTypes.string,
-  postUser: PropType.func,
-  getUser: PropType.func,
-  logoutUser: PropType.func,
-  clearAppointments: PropType.func,
-  clearInsurance: PropType.func,
-  clearProfile: PropType.func,
-  user: PropType.object,
-  isLoading: PropType.string,
-  errorMessage: PropType.string,
+  // postUser: PropType.func,
+  // getUser: PropType.func,
+  // logoutUser: PropType.func,
+  // clearAppointments: PropType.func,
+  // clearInsurance: PropType.func,
+  // clearProfile: PropType.func,
+  // user: PropType.object,
+  // isLoading: PropType.string,
+  // errorMessage: PropType.string,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

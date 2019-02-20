@@ -4,6 +4,8 @@ export const profileReducer = (state = [], action) => {
       return [...state, action.profileDetails]
     case 'GET_PROFILE' :
       return [...state, ...action.profileDetails]
+    case 'CLEAR_PROFILE' :
+      return []
     default:
       return state
   }
