@@ -9,27 +9,17 @@ describe('userReducer', () => {
     expect(result).toEqual(expected)
   })
 
-  it('should return the new state value of user if the action.type matches POST_USER', () =>{
+  it('should return the new state value of user if the action.type matches LOGIN_USER', () =>{
     const userDetails = {
       email: 'bob@email.com',
       password: '12345',
     }
     const state = {
     }
-    const result = userReducer(state, {type: 'POST_USER', userDetails})
+    const result = userReducer(state, {type: 'LOGIN_USER', userDetails})
     expect(result).toEqual(userDetails)
   })
 
-  it('should return the new state value of user if the action.type matches GET_USER', () =>{
-    const userDetails = {
-      email: 'bob@email.com',
-      password: '12345',
-    }
-    const state = {
-    }
-    const result = userReducer(state, {type: 'GET_USER', userDetails})
-    expect(result).toEqual(userDetails)
-  })
 
   it('should return the new state value of user if the action.type matches LOGOUT_USER', () =>{
     const userDetails = {

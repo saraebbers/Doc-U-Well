@@ -2,11 +2,11 @@ import { isLoading, hasErrored, getProfile } from '../../actions/index'
 import { apiKey } from '../../utils/apiKey';
 
 
-export const getProfileThunk = (url) => {
+export const getProfileThunk = (url, user) => {
   return async (dispatch) => {
     try {
       dispatch(isLoading(true))
-      const response = await fetch(`${url}?api_key=${apiKey}`)
+      const response = await fetch(`${url}?api_key=${user.attributes.api_key}`)
       if(!response.ok) {
         throw Error(response.statusText)
       }

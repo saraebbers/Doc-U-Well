@@ -1,17 +1,12 @@
 import { isLoading, hasErrored, loginUser } from '../../actions/index'
 
 
-export const postUserThunk = (url, newUser) => {
+export const getUserThunk = (url, oldUser) => {
+  console.log(oldUser)
   return async (dispatch) => {
     try {
       dispatch(isLoading(true))
-      const response = await fetch(url, {
-        method: 'POST',
-        body: JSON.stringify(newUser),
-        headers: {
-          'content-type': 'application/json'
-        }
-      })
+      const response = await fetch(`${url}?email=${oldUser.email}&password=${oldUser.password}`)
       if(!response.ok) {
         throw Error(response.statusText)
       }
