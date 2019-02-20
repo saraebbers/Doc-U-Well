@@ -50,12 +50,11 @@ class Schedule extends Component {
     this.handleChangeInsurance = this.handleChangeInsurance.bind(this);
     this.handleChangeState = this.handleChangeState.bind(this);
     this.handleChangeSpeciality = this.handleChangeSpeciality.bind(this);
+    this.handleChangeBlood = this.handleChangeBlood.bind(this);
   }
 
   handleChange(date) {
-    this.setState({
-      startDate: date
-    });
+    this.setState({startDate: date});
   }
 
   handleChangeInsurance(event) {
@@ -70,6 +69,10 @@ class Schedule extends Component {
     this.setState({speciality: event.target.value})
   }
 
+  handleChangeBlood(event) {
+    this.setState({blood: event.target.value})
+  }
+
   handleSubmit() {
     const { user, type, handleProfileSubmit, handleAppointmentSubmit, handleProviderSubmit, handleInsuranceSubmit } = this.props
     const { userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, startDate, ap, provider, providerFirst, providerLast, phone, streetAddress, city, state, zip, kind, speciality, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes } = this.state
@@ -77,7 +80,20 @@ class Schedule extends Component {
 
     switch (type) {
       case 'profile' :
-        payload = {userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, provider}
+        payload = {
+          api_key: user.attributes.api_key,
+          user_id: user.id,
+          provider_id: provider,
+          given_name: userFirst,
+          surname: userLast,
+          dob: dob,
+          height: height,
+          weight: weight,
+          bp_systolic: bps,
+          bp_diastolic: bpd,
+          heart_rate: hr,
+          blood_type: blood
+        }
         handleProfileSubmit(user, payload)
         this.setState({userFirst: '', userLast: '', dob: '',  blood: '', height: '', weight: '', bps: '', bpd: '', hr: '', provider: '' })
         break
@@ -162,7 +178,18 @@ class Schedule extends Component {
             <br/>
             Heart Rate: <input placeholder='Heart Rate' value={hr} onChange={(event) => this.setState({hr: event.target.value})}/>
             <br/>
-            Blood Type: <input placeholder='Blood Type' value={blood} onChange={(event) => this.setState({blood: event.target.value})}/>
+            <label>Blood Type:
+              <select value={this.state.blood} onChange={this.handleChangeBlood}>
+                <option value="o_negative">O-</option>
+                <option value="o_positive">O+</option>
+                <option value="a_negative">A-</option>
+                <option value="a_positive">A+</option>
+                <option value="b_negative">B-</option>
+                <option value="b_positive">B+</option>
+                <option value="ab_negative">AB-</option>
+                <option value="ab_positive">AB+</option>
+                </select>
+              </label>
             <br/>
             Primary Provider: <input placeholder='Provider' value={provider} onChange={(event) => this.setState({provider: event.target.value})}/>
             <br/>
