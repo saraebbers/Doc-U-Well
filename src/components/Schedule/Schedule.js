@@ -105,6 +105,7 @@ class Schedule extends Component {
 
   render() {
     let formData
+
     const { userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, startDate, ap, type, provider, providerFirst, providerLast, phone, streetAddress, city, state, zip, kind, specialty, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes } = this.state
 
     switch (this.props.type) {
