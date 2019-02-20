@@ -10,9 +10,42 @@
   align-items: center;
 }
 
-.login {
+.login, .logout {
   background-color: #314A4F;
-  opacity: .5;
-  width: 80%;
+  opacity: .75;
+  width: 90%;
   height: 50%;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+.form-txt {
+  color: #fdf2ea;
+  line-height: 30px;
+  text-shadow: .5px .5px 1px gray;
+  font-size: 1.25rem
+}
+
+.form-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.btn {
+  margin: 10px;
+  padding: 10px;
+  width: 40%;
+  border-radius: 10px;
+  position: relative;
+  font-size: .75rem;
+  color: #301e0a;
+  outline: none;
+  opacity: 10;
+
+  &:hover {
+    background-color: #9ec65d;
+    color: #fdf2ea;
+  }
 }
