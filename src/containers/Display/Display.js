@@ -107,10 +107,10 @@ const mapStateToProps = (state) => {
 }
 
 export const mapDispatchToProps = (dispatch) => ({
-  getAllAppointments: (url) => dispatch(getAllAppointmentsThunk(url)),
+  getAllAppointments: (url, user) => dispatch(getAllAppointmentsThunk(url, user)),
   getAllProviders: (url) => dispatch(getAllProvidersThunk(url)),
-  getAllInsurance: (url) => dispatch(getAllInsuranceThunk(url)),
-  getProfile: (url) => dispatch(getProfileThunk(url)),
+  getAllInsurance: (url, user) => dispatch(getAllInsuranceThunk(url, user)),
+  getProfile: (url, user) => dispatch(getProfileThunk(url, user)),
 })
 
 Display.propTypes = {
