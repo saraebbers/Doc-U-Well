@@ -6,11 +6,18 @@ import { addProvider } from '../../actions/index';
 import { addInsurance } from '../../actions/index';
 import { addProfile } from '../../actions/index';
 import { connect } from 'react-redux';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 
 class Schedule extends Component {
   constructor() {
     super()
     this.state = {
+      startDate: new Date(),
+      userFirst: '',
+      userLast: '',
+      dob: '',
       blood: '',
       height: '',
       weight:'',
@@ -20,42 +27,58 @@ class Schedule extends Component {
       date: '',
       time: '',
       ap: '',
+      type: '',
       kind: '',
       provider: '',
-      clinic: '',
+      providerFirst: '',
+      providerLast: '',
       phone: '',
-      address: '',
+      streetAddress: '',
+      city: '',
+      state: '',
+      zip: '',
+      kind: '',
       specialty: '',
       insuranceType: '',
       polNum: '',
+      insurancePhone: '',
+      groupNumber: '',
       notes: '',
-    }
+      carrier: '',
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(date) {
+    this.setState({
+      startDate: date
+    });
   }
 
   handleSubmit() {
     const { type, handleProfileSubmit, handleAppointmentSubmit, handleProviderSubmit, handleInsuranceSubmit } = this.props
-    const { blood, height, weight, bps, bpd, hr, date, time, ap, kind, provider, clinic, phone, address, specialty, insuranceType, polNum, notes } = this.state
+    const { userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, startDate, ap, provider, providerFirst, providerLast, phone, streetAddress, city, state, zip, kind, specialty, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes } = this.state
     let text
     switch (type) {
       case 'profile' :
-        text = {blood, height, weight, bps, bpd, hr}
+        text = {userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, provider}
         handleProfileSubmit(text)
-        this.setState({blood: '', height: '', weight: '', bps: '', bpt: '', hr: '' })
+        this.setState({userFirst: '', userLast: '', dob: '',  blood: '', height: '', weight: '', bps: '', bpd: '', hr: '', provider: '' })
         break
       case 'appointments' :
-        text = {date, time, kind, provider, notes}
+        text = {startDate, kind, provider, notes}
         handleAppointmentSubmit(text)
-        this.setState({date:'', time: '', kind: '', provider: '', notes: ''})
+        this.setState({startDate: new Date(), kind: '', provider: '', notes: ''})
         break
       case 'providers' :
-        text = {provider, clinic, phone, address, specialty}
+        text = {providerFirst, providerLast, phone, streetAddress, city, state, zip, specialty}
         handleProviderSubmit(text)
-        this.setState({provider: '', clinic: '', phone: '', address: '', specialty: ''})
+        this.setState({providerFirst: '', providerLast: '', phone: '', streetAddress: '', city: '', state: '', zip: '', specialty: ''})
         break
       case 'insurance' :
-        text = {insuranceType, polNum}
+        text = {carrier, groupNumber, insurancePhone, insuranceType, polNum}
         handleInsuranceSubmit(text)
-        this.setState({insuranceType: '', polNum: ''})
+        this.setState({carrier: '', insuranceType: '', polNum: '', groupNumber: '', insurancePhone: ''})
         break
       default:
         return ('hit handleSubmit default')
@@ -82,7 +105,8 @@ class Schedule extends Component {
 
   render() {
     let formData
-    const { userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, date, time, ap, type, provider, providerFirst, providerLast, phone, streetAddress, city, state, zip, kind, specialty, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes} = this.state
+
+    const { userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, startDate, ap, type, provider, providerFirst, providerLast, phone, streetAddress, city, state, zip, kind, specialty, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes } = this.state
 
     switch (this.props.type) {
       case 'profile' :
@@ -112,9 +136,12 @@ class Schedule extends Component {
       case 'appointments' :
         formData = (
           <div className='form-info'>
-            Date: <input placeholder='Date' value={date} onChange={(event) => this.setState({date: event.target.value})}/>
-            <br/>
-            Time: <input placeholder='Time' value={time} onChange={(event) => this.setState({time: event.target.value})}/> <input placeholder='am/pm' size='6' value={ap} onChange={(event) => this.setState({ap: event.target.value})}/>
+            Date: <DatePicker
+            selected={this.state.startDate}
+            onChange={this.handleChange}
+            showTimeSelect
+            dateFormat='Pp'
+            />
             <br/>
             Type of Appointment: <input placeholder='Type of Appointment' value={kind} onChange={(event) => this.setState({kind: event.target.value})}/>
             <br/>
