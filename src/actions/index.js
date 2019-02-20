@@ -42,6 +42,11 @@ export const getInsurance = (insuranceDetails) => ({
   insuranceDetails
 })
 
+export const clearInsurance = (insuranceDetails) => ({
+  type: 'CLEAR_INSURANCE',
+  insuranceDetails
+})
+
 export const addProfile = (profileDetails) => ({
   type: 'ADD_PROFILE',
   profileDetails
@@ -49,6 +54,11 @@ export const addProfile = (profileDetails) => ({
 
 export const getProfile = (profileDetails) => ({
   type: 'GET_PROFILE',
+  profileDetails
+})
+
+export const clearProfile = (profileDetails) => ({
+  type: 'CLEAR_PROFILE',
   profileDetails
 })
 
