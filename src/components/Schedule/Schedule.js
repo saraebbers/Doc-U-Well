@@ -82,7 +82,7 @@ class Schedule extends Component {
 
   render() {
     let formData
-    const { blood, height, weight, bps, bpd, hr, date, time, ap, type, provider, clinic, phone, address, kind, specialty, insuranceType, polNum, notes} = this.state
+    const { blood, height, weight, bps, bpd, hr, date, time, ap, type, provider, clinic, phone, address, kind, specialty, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes} = this.state
 
     switch (this.props.type) {
       case 'profile' :
@@ -133,9 +133,16 @@ class Schedule extends Component {
       case 'insurance' :
         formData = (
           <div className='form-info'>
+            Insurance Carrier: <input placeholder='Insurance Carrier' value={carrier} onChange={(event) => this.setState({carrier: event.target.value})}/>
+            <br/>
             Insurance Type: <input placeholder='Insurance Type' value={insuranceType} onChange={(event) => this.setState({insuranceType: event.target.value})}/>
             <br/>
             Insurance Policy Number: <input placeholder='Insurance Policy Number' value={polNum} size='22' onChange={(event) => this.setState({polNum: event.target.value})}/>
+            <br/>
+            Group Number: <input placeholder='Group Number' value={groupNumber} onChange={(event) => this.setState({groupNumber: event.target.value})}/>
+            <br/>
+            Phone: <input placeholder='Insurance Phone Number' value={insurancePhone} onChange={(event) => this.setState({insurancePhone: event.target.value})}/>
+            <br/>
           </div>
         )
         return this.informationSubmission(formData)
