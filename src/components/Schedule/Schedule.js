@@ -47,12 +47,17 @@ class Schedule extends Component {
       carrier: '',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleChangeSelect = this.handleChangeSelect.bind(this);
   }
 
   handleChange(date) {
     this.setState({
       startDate: date
     });
+  }
+
+  handleChangeSelect(event) {
+    this.setState({insuranceType: event.target.value})
   }
 
   handleSubmit() {
@@ -86,6 +91,8 @@ class Schedule extends Component {
           id_number: polNum,
           group_number: groupNumber,
           phone_number: insurancePhone,
+          profile_id: user.id,
+          api_key: user.attributes.api_key,
         }
         handleInsuranceSubmit(user, payload)
         this.setState({carrier: '', insuranceType: '', polNum: '', groupNumber: '', insurancePhone: ''})
@@ -183,11 +190,19 @@ class Schedule extends Component {
         )
         return this.informationSubmission(formData)
       case 'insurance' :
+            // Insurance Type: <input placeholder='Insurance Type' value={insuranceType} onChange={(event) => this.setState({insuranceType: event.target.value})}/>
         formData = (
           <div className='form-info'>
             Insurance Carrier: <input placeholder='Insurance Carrier' value={carrier} onChange={(event) => this.setState({carrier: event.target.value})}/>
             <br/>
-            Insurance Type: <input placeholder='Insurance Type' value={insuranceType} onChange={(event) => this.setState({insuranceType: event.target.value})}/>
+            <label>Insurance Type: 
+              <select value={this.state.insuranceType} onChange={this.handleChangeSelect}>
+                <option value="medical">Medical</option>
+                <option value="dental">Dental</option>
+                <option value="vision">Vision</option>
+                <option value="supplemental">Supplemental</option>
+              </select>
+            </label>
             <br/>
             Insurance Policy Number: <input placeholder='Insurance Policy Number' value={polNum} size='22' onChange={(event) => this.setState({polNum: event.target.value})}/>
             <br/>

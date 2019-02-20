@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { postUserThunk } from '../../thunks/userThunk/postUserThunk'
 import { getUserThunk } from '../../thunks/userThunk/getUserThunk'
-import { isLoading, hasErrored, logoutUser } from '../../actions/index'
+import { isLoading, hasErrored, logoutUser, clearAppointments } from '../../actions/index'
+
 
 
 class Home extends Component {
@@ -42,6 +43,11 @@ class Home extends Component {
     })
   }
 
+  resetGlobalState(event) {
+    this.props.logoutUser()
+    this.props.clearAppointments()
+  }
+
   displayFormOrMessage() {
     const { email, password } = this.state
     
@@ -69,7 +75,7 @@ class Home extends Component {
       return(
         <div className="home-container"> 
           <section className="logout">
-            <button className='btn' onClick={(event) => {this.props.logoutUser()}}>Log Out</button>
+            <button className='btn' onClick={(event) => {this.resetGlobalState()}}>Log Out</button>
           </section>
         </div>
       )
@@ -95,7 +101,9 @@ const mapStateToProps = (state) => {
 export const mapDispatchToProps = (dispatch) => ({
   postUser: (url, newUser) => dispatch(postUserThunk(url, newUser)),
   getUser: (url, oldUser) => dispatch(getUserThunk(url, oldUser)),
-  logoutUser: () => dispatch(logoutUser())
+  logoutUser: () => dispatch(logoutUser()),
+  clearAppointments: () => dispatch(clearAppointments())
+
 })
 
 Home.propTypes = {

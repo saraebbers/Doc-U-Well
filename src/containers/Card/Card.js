@@ -75,7 +75,13 @@ class Card extends Component {
         )
       case 'insurance' :
         const { insurance_type, carrier, id_number, group_number, phone_number } = this.props.attributes
-        const insuranceType = insurance_type.toUpperCase()
+        let insuranceType
+
+        if(insurance_type) {
+          insuranceType = insurance_type.toUpperCase()
+        } else {
+          insuranceType = 'not entered'
+        }
         return(
           <div className='card-container'>
             <i className="fas fa-trash-alt"></i>

@@ -27,13 +27,13 @@ class Display extends Component {
     if (!providers.length){
       getAllProviders('https://my-health-tracker.herokuapp.com/api/v1/providers')
     }
-    if (!appointments.length){
+    if (!appointments.length && user.id){
       getAllAppointments('https://my-health-tracker.herokuapp.com/api/v1/appointments', user)
-    }
-    if (!profile.length){
+    } 
+    if (!profile.length && user.id){
       getProfile('https://my-health-tracker.herokuapp.com/api/v1/profiles', user)
     }
-    if (!insurance.length){
+    if (!insurance.length && user.id){
       getAllInsurance('https://my-health-tracker.herokuapp.com/api/v1/insurances', user)
     }
   }
