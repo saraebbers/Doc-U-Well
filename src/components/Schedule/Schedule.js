@@ -82,12 +82,18 @@ class Schedule extends Component {
 
   render() {
     let formData
-    const { blood, height, weight, bps, bpd, hr, date, time, ap, type, provider, providerFirst, providerLast, phone, streetAddress, cityAddress, stateAddress, zipAddress, kind, specialty, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes} = this.state
+    const { userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, date, time, ap, type, provider, providerFirst, providerLast, phone, streetAddress, city, state, zip, kind, specialty, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes} = this.state
 
     switch (this.props.type) {
       case 'profile' :
         formData = (
           <div className='form-info'>
+            First Name: <input placeholder='First Name' value={userFirst} onChange={(event) => this.setState({userFirst: event.target.value})}/>
+            <br/>
+            Last Name: <input placeholder='Last Name' value={userLast} onChange={(event) => this.setState({userLast: event.target.value})}/>
+            <br/>
+            DOB: <input placeholder='DOB' value={dob} onChange={(event) => this.setState({dob: event.target.value})}/>
+            <br/>
             Height: <input placeholder='Height' value={height} onChange={(event) => this.setState({height: event.target.value})}/>
             <br/>
             Weight: <input placeholder='Weight' value={weight} onChange={(event) => this.setState({weight: event.target.value})}/>
@@ -97,6 +103,9 @@ class Schedule extends Component {
             Heart Rate: <input placeholder='Heart Rate' value={hr} onChange={(event) => this.setState({hr: event.target.value})}/>
             <br/>
             Blood Type: <input placeholder='Blood Type' value={blood} onChange={(event) => this.setState({blood: event.target.value})}/>
+            <br/>
+            Primary Provider: <input placeholder='Provider' value={provider} onChange={(event) => this.setState({provider: event.target.value})}/>
+            <br/>
           </div>
         )
         return this.informationSubmission(formData)
@@ -126,11 +135,11 @@ class Schedule extends Component {
             <br/>
             Street Address: <input placeholder='Street Address' value={streetAddress} onChange={(event) => this.setState({streetAddress: event.target.value})}/>
             <br/>
-            City: <input placeholder='City' value={cityAddress} onChange={(event) => this.setState({cityAddress: event.target.value})}/>
+            City: <input placeholder='City' value={city} onChange={(event) => this.setState({city: event.target.value})}/>
             <br/>
-            State: <input placeholder='State' value={stateAddress} onChange={(event) => this.setState({stateAddress: event.target.value})}/>
+            State: <input placeholder='State' value={state} onChange={(event) => this.setState({state: event.target.value})}/>
             <br/>
-            Zip: <input placeholder='Zip Code' value={zipAddress} onChange={(event) => this.setState({zipAddress: event.target.value})}/>
+            Zip: <input placeholder='Zip Code' value={zip} onChange={(event) => this.setState({zip: event.target.value})}/>
             <br/>
             Specialty: <input placeholder='Specialty' value={specialty} onChange={(event) => this.setState({specialty: event.target.value})}/>
           </div>
