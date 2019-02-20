@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import '../../index.scss';
 import PropTypes from 'prop-types';
-import { addAppointment } from '../../actions/index';
-import { addProvider } from '../../actions/index';
-import { addInsurance } from '../../actions/index';
-import { addProfile } from '../../actions/index';
 import { connect } from 'react-redux';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { addAppointmentThunk } from '../../thunks/appointmentThunk/postAppointmentThunk'
+import { addProviderThunk } from '../../thunks/providerThunk/postProviderThunk'
+import { addInsuranceThunk } from '../../thunks/insuranceThunk/postInsuranceThunk'
+import { addProfileThunk } from '../../thunks/profileThunk/postProfileThunk'
 
 
 class Schedule extends Component {
@@ -56,28 +56,38 @@ class Schedule extends Component {
   }
 
   handleSubmit() {
-    const { type, handleProfileSubmit, handleAppointmentSubmit, handleProviderSubmit, handleInsuranceSubmit } = this.props
+    const { user, type, handleProfileSubmit, handleAppointmentSubmit, handleProviderSubmit, handleInsuranceSubmit } = this.props
     const { userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, startDate, ap, provider, providerFirst, providerLast, phone, streetAddress, city, state, zip, kind, specialty, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes } = this.state
-    let text
+    let payload
+    
     switch (type) {
       case 'profile' :
-        text = {userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, provider}
-        handleProfileSubmit(text)
+        payload = {userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, provider}
+        handleProfileSubmit(user, payload)
         this.setState({userFirst: '', userLast: '', dob: '',  blood: '', height: '', weight: '', bps: '', bpd: '', hr: '', provider: '' })
         break
       case 'appointments' :
-        text = {startDate, kind, provider, notes}
-        handleAppointmentSubmit(text)
+        payload = {
+          datetime: this.state.startDate,
+          // provider_id: this.state.provider
+        }
+        handleAppointmentSubmit(user, payload)
         this.setState({startDate: new Date(), kind: '', provider: '', notes: ''})
         break
       case 'providers' :
-        text = {providerFirst, providerLast, phone, streetAddress, city, state, zip, specialty}
-        handleProviderSubmit(text)
+        payload = {providerFirst, providerLast, phone, streetAddress, city, state, zip, specialty}
+        handleProviderSubmit(user, payload)
         this.setState({providerFirst: '', providerLast: '', phone: '', streetAddress: '', city: '', state: '', zip: '', specialty: ''})
         break
       case 'insurance' :
-        text = {carrier, groupNumber, insurancePhone, insuranceType, polNum}
-        handleInsuranceSubmit(text)
+        payload = {
+          insurance_type: insuranceType,
+          carrier: carrier,
+          id_number: polNum,
+          group_number: groupNumber,
+          phone_number: insurancePhone,
+        }
+        handleInsuranceSubmit(user, payload)
         this.setState({carrier: '', insuranceType: '', polNum: '', groupNumber: '', insurancePhone: ''})
         break
       default:
@@ -201,23 +211,24 @@ const mapStateToProps = (state) => {
     insurance: state.insurance,
     profile: state.profile,
     isLoading: state.isLoading,
-    errorMessage: state.errorMessage
+    errorMessage: state.errorMessage,
+    user: state.user
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleAppointmentSubmit: (text => {
-      dispatch(addAppointment(text))
+    handleAppointmentSubmit: ((user, payload)=> {
+      dispatch(addAppointmentThunk(user, payload))
     }),
-    handleProviderSubmit: (text => {
-      dispatch(addProvider(text))
+    handleProviderSubmit: ((user, payload)=> {
+      dispatch(addProviderThunk(user, payload))
     }),
-    handleInsuranceSubmit: (text => {
-      dispatch(addInsurance(text))
+    handleInsuranceSubmit: ((user, payload)=> {
+      dispatch(addInsuranceThunk(user, payload))
     }),
-    handleProfileSubmit: (text => {
-      dispatch(addProfile(text))
+    handleProfileSubmit: ((user, payload)=> {
+      dispatch(addProfileThunk(user, payload))
     }),
   }
 }
