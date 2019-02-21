@@ -21,4 +21,28 @@ describe('profileReducer', () => {
     const result = profileReducer(state, {type: 'ADD_PROFILE', profileDetails})
     expect(result).toEqual([...state, profileDetails])
   })
+
+  it('should return the new state value of profile if the action.type matches GET_PROFILE', () =>{
+    const profileDetails = [{
+      height: '69',
+      weight: '150',
+    }]
+    const state = [{
+      given_name: 'Angela',
+      heart_rate: '120',
+    }]
+    const result = profileReducer(state, {type: 'GET_PROFILE', profileDetails})
+    expect(result).toEqual([...state, ...profileDetails])
+  })
+
+  it('should return the new state value of profile if the action.type matches CLEAR_PROFILE', () =>{
+    const profileDetails = {}
+    const state = [{
+      given_name: 'Angela',
+      heart_rate: '120',
+    }]
+    const result = profileReducer(state, {type: 'CLEAR_PROFILE', profileDetails})
+    expect(result).toEqual([])
+  })
+
 })
