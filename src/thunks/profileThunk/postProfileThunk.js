@@ -1,6 +1,8 @@
 import { isLoading, hasErrored, addProfile } from '../../actions/index'
 
 export const addProfileThunk = (user, payload) => {
+  console.log('pl', payload)
+  console.log('user', user)
 
   let url = 'https://my-health-tracker.herokuapp.com/api/v1/profiles'
   return async (dispatch) => {

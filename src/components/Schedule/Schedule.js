@@ -45,12 +45,15 @@ class Schedule extends Component {
       groupNumber: '',
       notes: '',
       carrier: '',
+      profileNameId: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleChangeInsurance = this.handleChangeInsurance.bind(this);
     this.handleChangeState = this.handleChangeState.bind(this);
     this.handleChangeSpeciality = this.handleChangeSpeciality.bind(this);
     this.handleChangeBlood = this.handleChangeBlood.bind(this);
+    this.handleChangeProfileName = this.handleChangeProfileName.bind(this);
+
   }
 
   handleChange(date) {
@@ -73,9 +76,13 @@ class Schedule extends Component {
     this.setState({blood: event.target.value})
   }
 
+  handleChangeProfileName(event) {
+    this.setState({profileNameId: event.target.value})
+  }
+
   handleSubmit() {
-    const { user, type, handleProfileSubmit, handleAppointmentSubmit, handleProviderSubmit, handleInsuranceSubmit } = this.props
-    const { userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, startDate, ap, provider, providerFirst, providerLast, phone, streetAddress, city, state, zip, kind, speciality, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes } = this.state
+    const { user, type, profile, handleProfileSubmit, handleAppointmentSubmit, handleProviderSubmit, handleInsuranceSubmit } = this.props
+    const { userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, startDate, ap, provider, providerFirst, providerLast, phone, streetAddress, city, state, zip, kind, speciality, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes, profileNameId } = this.state
     let payload
 
     switch (type) {
@@ -126,11 +133,11 @@ class Schedule extends Component {
           id_number: polNum,
           group_number: groupNumber,
           phone_number: insurancePhone,
-          profile_id: user.id,
+          profile_id: profileNameId,
           api_key: user.attributes.api_key,
         }
         handleInsuranceSubmit(user, payload)
-        this.setState({carrier: '', insuranceType: '', polNum: '', groupNumber: '', insurancePhone: ''})
+        this.setState({carrier: '', insuranceType: '', polNum: '', groupNumber: '', insurancePhone: '', profileNameId: ''})
         break
       default:
         return ('hit handleSubmit default')
@@ -180,6 +187,7 @@ class Schedule extends Component {
             <br/>
             <label>Blood Type:
               <select value={this.state.blood} onChange={this.handleChangeBlood}>
+                <option  selected={true}>Select Below</option>
                 <option value="o_negative">O-</option>
                 <option value="o_positive">O+</option>
                 <option value="a_negative">A-</option>
@@ -229,6 +237,7 @@ class Schedule extends Component {
             <br/>
             <label>State:
               <select value={this.state.state} onChange={this.handleChangeState}>
+                <option  selected={true}>Select Below</option>
                 <option value="AK">AK</option>
                 <option value="AL">AL</option>
                 <option value="AR">AR</option>
@@ -286,6 +295,7 @@ class Schedule extends Component {
             <br/>
             <label>Speciality:
               <select value={this.state.speciality} onChange={this.handleChangeSpeciality}>
+                <option  selected={true}>Select Below</option>
                 <option value="allergist">allergist</option>
                 <option value="anesthesiologist">anesthesiologist</option>
                 <option value="cardiologist">cardiologist</option>
@@ -323,13 +333,23 @@ class Schedule extends Component {
         )
         return this.informationSubmission(formData)
       case 'insurance' :
-            // Insurance Type: <input placeholder='Insurance Type' value={insuranceType} onChange={(event) => this.setState({insuranceType: event.target.value})}/>
+        let nameChoices = this.props.profile.map(pf => {
+          return {name: pf.attributes.given_name, id: pf.id}
+        })
+        let listName = nameChoices.map(namech => {
+          let profileUserName = namech.name
+          return (
+            <option value={`${namech.id}`} key={`${namech.id}`}>{profileUserName}</option>
+          )
+        })
+
         formData = (
           <div className='form-info'>
             Insurance Carrier: <input placeholder='Insurance Carrier' value={carrier} onChange={(event) => this.setState({carrier: event.target.value})}/>
             <br/>
             <label>Insurance Type:
-              <select value={this.state.insuranceType} onChange={this.handleChangeInsurance}>
+              <select required value={this.state.insuranceType} onChange={this.handleChangeInsurance}>
+                <option  selected={true}>Select Below</option>
                 <option value="medical">Medical</option>
                 <option value="dental">Dental</option>
                 <option value="vision">Vision</option>
@@ -343,6 +363,12 @@ class Schedule extends Component {
             <br/>
             Phone: <input placeholder='Insurance Phone Number' value={insurancePhone} onChange={(event) => this.setState({insurancePhone: event.target.value})}/>
             <br/>
+            <label>Profile User Related to Insurance:
+              <select required value={this.state.profileNameId} onChange={this.handleChangeProfileName}>
+                <option  selected={true}>Select Below</option>
+                { listName }
+              </select>
+            </label>
           </div>
         )
         return this.informationSubmission(formData)
