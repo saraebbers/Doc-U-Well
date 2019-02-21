@@ -53,7 +53,8 @@ class Schedule extends Component {
     this.handleChangeSpeciality = this.handleChangeSpeciality.bind(this);
     this.handleChangeBlood = this.handleChangeBlood.bind(this);
     this.handleChangeProfileName = this.handleChangeProfileName.bind(this);
-
+    this.handleChangeApptName = this.handleChangeApptName.bind(this);
+    this.handleChangeApptProvider = this.handleChangeApptProvider.bind(this);
   }
 
   handleChange(date) {
@@ -80,9 +81,17 @@ class Schedule extends Component {
     this.setState({profileNameId: event.target.value})
   }
 
+  handleChangeApptName(event) {
+    this.setState({profileApptId: event.target.value})
+  }
+
+  handleChangeApptProvider(event) {
+    this.setState({provider: event.target.value})
+  }
+
   handleSubmit() {
     const { user, type, profile, handleProfileSubmit, handleAppointmentSubmit, handleProviderSubmit, handleInsuranceSubmit } = this.props
-    const { userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, startDate, ap, provider, providerFirst, providerLast, phone, streetAddress, city, state, zip, kind, speciality, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes, profileNameId } = this.state
+    const { userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, startDate, ap, provider, providerFirst, providerLast, phone, streetAddress, city, state, zip, kind, speciality, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes, profileNameId, profileApptId } = this.state
     let payload
 
     switch (type) {
@@ -107,7 +116,9 @@ class Schedule extends Component {
       case 'appointments' :
         payload = {
           datetime: this.state.startDate,
-          // provider_id: this.state.provider
+          api_key: user.attributes.api_key,
+          profile_id: profileApptId,
+          provider_id: provider
         }
         handleAppointmentSubmit(user, payload)
         this.setState({startDate: new Date(), kind: '', provider: '', notes: ''})
@@ -205,6 +216,26 @@ class Schedule extends Component {
         )
         return this.informationSubmission(formData)
       case 'appointments' :
+        let apptNameChoices = this.props.profile.map(pf => {
+          return {apptName: pf.attributes.given_name, apptId: pf.id}
+        })
+        let apptListName = apptNameChoices.map(apptName => {
+        let apptUserName = apptName.apptName
+        return (
+          <option value={`${apptName.apptId}`} key={`${apptName.apptId}`}>{apptUserName}</option>
+        )
+        })
+
+        let providerChoices = this.props.provider.map(pf => {
+          return {providerName: pf.attributes.given_name, providerId: pf.id}
+        })
+        let apptProviders = providerChoices.map(providerName => {
+        let pName = providerName.providerName
+        return (
+          <option value={`${providerName.providerId}`} key={`${providerName.providerId}`}>{pName}</option>
+        )
+        })
+
         formData = (
           <div className='form-info'>
             Date: <DatePicker
@@ -216,7 +247,19 @@ class Schedule extends Component {
             <br/>
             Type of Appointment: <input placeholder='Type of Appointment' value={kind} onChange={(event) => this.setState({kind: event.target.value})}/>
             <br/>
-            Provider: <input placeholder='Provider' value={provider} onChange={(event) => this.setState({provider: event.target.value})}/>
+            <label>Provider Related to Appointment:
+              <select required value={this.state.apptProviderId} onChange={this.handleChangeApptProvider}>
+                <option  selected={true}>Select Below</option>
+                { apptProviders }
+              </select>
+            </label>
+            <br/>
+            <label>Profile User Related to Appointment:
+              <select required value={this.state.apptNameId} onChange={this.handleChangeApptName}>
+                <option  selected={true}>Select Below</option>
+                { apptListName }
+              </select>
+            </label>
             <br/>
             <textarea width='100%' rows='10' cols='50' wrap placeholder='Add Appointment Notes Here' value={notes} onChange={(event) => this.setState({notes: event.target.value})}/>
           </div>
