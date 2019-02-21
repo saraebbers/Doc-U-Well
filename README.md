@@ -1,7 +1,7 @@
 # Doc-U-Well / My Health Navigator
 
 ## Description
-My Health Navigator is a web application designed to allow the user to track and save information related to medical appointments. This is a cross polination project between Back-end and Front-end students.  The front end is built with React, Router, Redux and the back end was built with Ruby and Rails.  CI is provided through TravisCI and deployment through Heroku.  The front-end may be accessed at [My Health Navigator](https://myhealthnavigator.herokuapp.com/).  The back-end may be acessed at: (add info here).
+My Health Navigator is a web application designed to allow the user to track and save information related to medical appointments. This is a cross polination project between Back-end and Front-end students.  The front end is built with React, Router, Redux and the back end was built with Ruby and Rails.  CI is provided through TravisCI and deployment through Heroku.  The front-end may be accessed at [My Health Navigator](https://myhealthnavigator.herokuapp.com/).  The back-end may be acessed at: [my-health-tracker](https://my-health-tracker.herokuapp.com/api/v1/) please note, you must add endpoints to access.
 
 This project is a part of the Engineering Program at the Turing School of Software and Design. You can find the specs for it [here](http://frontend.turing.io/projects/capstone.html).  Students had 10 days to complete this project.
 
