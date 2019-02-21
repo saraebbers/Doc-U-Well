@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import Card from '../Card/Card'
 import Schedule from '../../components/Schedule/Schedule'
 import { connect } from 'react-redux';
-import { apiKey } from '../../utils/apiKey'
 import { getAllAppointmentsThunk } from '../../thunks/appointmentThunk/getAppointmentsThunk'
 import { getAllProvidersThunk } from '../../thunks/providerThunk/getProvidersThunk'
 import { getAllInsuranceThunk } from '../../thunks/insuranceThunk/getInsuranceThunk'
@@ -75,7 +74,6 @@ class Display extends Component {
   }
 
   render () {
-    let url
     let btnName
     let responseArray
     const { type, providers, appointments, profile, insurance} = this.props

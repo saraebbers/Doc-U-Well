@@ -37,7 +37,6 @@ class Schedule extends Component {
       city: '',
       state: '',
       zip: '',
-      kind: '',
       specialty: '',
       insuranceType: '',
       polNum: '',
@@ -90,8 +89,8 @@ class Schedule extends Component {
   }
 
   handleSubmit() {
-    const { user, type, profile, handleProfileSubmit, handleAppointmentSubmit, handleProviderSubmit, handleInsuranceSubmit } = this.props
-    const { userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, startDate, ap, provider, providerFirst, providerLast, phone, streetAddress, city, state, zip, kind, speciality, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes, profileNameId, profileApptId } = this.state
+    const { user, type, handleProfileSubmit, handleAppointmentSubmit, handleProviderSubmit, handleInsuranceSubmit } = this.props
+    const { userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, provider, providerFirst, providerLast, phone, streetAddress, city, state, zip, speciality, insuranceType, polNum, insurancePhone, groupNumber, carrier, profileNameId, profileApptId } = this.state
     let payload
 
     switch (type) {
@@ -176,7 +175,7 @@ class Schedule extends Component {
   render() {
     let formData
 
-    const { userFirst, userLast, dob, blood, height, weight, bps, bpd, hr, startDate, ap, type, provider, providerFirst, providerLast, phone, streetAddress, city, state, zip, kind, specialty, insuranceType, polNum, insurancePhone, groupNumber, carrier, notes } = this.state
+    const { userFirst, userLast, dob, height, weight, bps, bpd, hr, provider, providerFirst, providerLast, phone, streetAddress, city, zip, kind, polNum, insurancePhone, groupNumber, carrier, notes } = this.state
 
     switch (this.props.type) {
       case 'profile' :

@@ -1,6 +1,4 @@
 import { isLoading, hasErrored, getProviders } from '../../actions/index'
-import { apiKey } from '../../utils/apiKey';
-
 
 export const getAllProvidersThunk = (url) => {
   return async (dispatch) => {

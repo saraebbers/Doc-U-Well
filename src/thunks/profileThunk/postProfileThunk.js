@@ -15,7 +15,6 @@ export const addProfileThunk = (user, payload) => {
       })
       if(!response.ok) {
         throw Error(response.statusText)
-        console.log('error', response.statusText)
       }
       dispatch(isLoading(false))
       const profileDetails = await response.json()

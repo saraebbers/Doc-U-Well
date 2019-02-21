@@ -16,7 +16,6 @@ export const addProviderThunk = (user, payload) => {
       })
       if(!response.ok) {
         throw Error(response.statusText)
-        console.log('error', response.statusText)
       }
       dispatch(isLoading(false))
       const providerDetails = await response.json()
