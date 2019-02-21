@@ -5,11 +5,19 @@ describe('postUserThunk', () => {
   let mockUrl
   let mockDispatch
   let mockUser
+  let mockOptionsObj
 
   beforeEach(() => {
     mockUrl = 'https://my-health-tracker.herokuapp.com/api/v1/users'
     mockDispatch = jest.fn()
     mockUser = {email: 'bob@email.com', password: '1234'}
+    mockOptionsObj = {
+        method: 'POST',
+        body: JSON.stringify(mockUser),
+        headers: {
+          'content-type': 'application/json'
+        }
+      }
   })
 
   it('calls dispatch with the isLoading action with true value prior to the fetch call', () => {
