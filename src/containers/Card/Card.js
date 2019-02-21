@@ -35,7 +35,7 @@ class Card extends Component {
           </div>
         )
       case 'appointments' :
-        const { datetime, profile_id, provider_id} = this.props.attributes
+        const { datetime, profile_id, provider_id, notes} = this.props.attributes
         let currentProvider = this.props.providers.find(provider => {
           return provider.id == provider_id
         })
@@ -58,6 +58,7 @@ class Card extends Component {
             <h4> {date} </h4>
             <p> { currentProvider.attributes.street_address } { currentProvider.attributes.city } { currentProvider.attributes.state } { currentProvider.attributes.zip }</p>
             <p> { currentProvider.attributes.phone } </p>
+            <p> { notes } </p>
 
           </div>
         )

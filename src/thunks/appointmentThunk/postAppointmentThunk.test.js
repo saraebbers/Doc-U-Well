@@ -1,4 +1,4 @@
-import { isLoading, hasErrored, addAppointments } from '../../actions/index';
+import { isLoading, hasErrored, addAppointment } from '../../actions/index';
 import { addAppointmentThunk } from './postAppointmentThunk.js';
 
 describe('addAppointmentThunk', () => {
@@ -55,7 +55,7 @@ describe('addAppointmentThunk', () => {
     }))
     const thunk = addAppointmentThunk(mockUrl, mockUser)
     await thunk(mockDispatch)
-    expect(mockDispatch).toHaveBeenCalledWith(addAppointments(mockAppointment))
+    expect(mockDispatch).toHaveBeenCalledWith(addAppointment(mockAppointment))
   })
 
 })
