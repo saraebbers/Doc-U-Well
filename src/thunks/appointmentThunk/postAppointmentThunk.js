@@ -2,7 +2,6 @@ import { isLoading, hasErrored, addAppointment } from '../../actions/index'
 
 export const addAppointmentThunk = (user, payload) => {
   let url = 'https://my-health-tracker.herokuapp.com/api/v1/appointments'
-  console.log(payload)
   return async (dispatch) => {
     try {
       dispatch(isLoading(true))
