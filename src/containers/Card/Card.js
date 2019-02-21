@@ -35,7 +35,7 @@ class Card extends Component {
           </div>
         )
       case 'appointments' :
-        const { datetime, profile_id, provider_id, notes} = this.props.attributes
+        const { datetime, provider_id, notes} = this.props.attributes
         let currentProvider = this.props.providers.find(provider => {
           return provider.id == provider_id
         })
@@ -64,10 +64,11 @@ class Card extends Component {
         )
       case 'providers' :
         const { specialty, given_name, surname, street_address, city, state, zip, phone  } = this.props.attributes
-        // const specialtyType = specialty.toUpperCase()
-        // <h3> {specialtyType} PROVIDER </h3>
+        const specialtyType = specialty.toUpperCase()
+        
         return(
             <div className='card-container'>
+            <h3> {specialtyType} PROVIDER </h3>
             <i className="fas fa-trash-alt"></i>
             <h4> { given_name } { surname }</h4>
             <p>{ street_address } { city } { state } { zip }</p>

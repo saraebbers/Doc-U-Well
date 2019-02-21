@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { postUserThunk } from '../../thunks/userThunk/postUserThunk'
 import { getUserThunk } from '../../thunks/userThunk/getUserThunk'
-import { isLoading, hasErrored, logoutUser, clearAppointments, clearInsurance, clearProfile } from '../../actions/index'
+import { logoutUser, clearAppointments, clearInsurance, clearProfile } from '../../actions/index'
 
 
 
@@ -19,7 +19,7 @@ export class Home extends Component {
   }
 
   async handleSubmit() {
-    const { user, postUser, getUser} = this.props
+    const { postUser, getUser} = this.props
     const { currentUser, email, password } = this.state
     const url = 'https://my-health-tracker.herokuapp.com/api/v1/users'
     if (currentUser === 'newUser') {
@@ -95,9 +95,7 @@ export class Home extends Component {
 
 export const mapStateToProps = (state) => {
   return {
-    user: state.user,
-    isLoading: state.isLoading,
-    errorMessage: state.errorMessage,
+    user: state.user
     }
 }
 
@@ -112,15 +110,6 @@ export const mapDispatchToProps = (dispatch) => ({
 
 Home.propTypes = {
   type: PropTypes.string,
-  // postUser: PropType.func,
-  // getUser: PropType.func,
-  // logoutUser: PropType.func,
-  // clearAppointments: PropType.func,
-  // clearInsurance: PropType.func,
-  // clearProfile: PropType.func,
-  // user: PropType.object,
-  // isLoading: PropType.string,
-  // errorMessage: PropType.string,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

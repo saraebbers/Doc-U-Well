@@ -1,6 +1,4 @@
 import { isLoading, hasErrored, getProfile } from '../../actions/index'
-import { apiKey } from '../../utils/apiKey';
-
 
 export const getProfileThunk = (url, user) => {
   return async (dispatch) => {
