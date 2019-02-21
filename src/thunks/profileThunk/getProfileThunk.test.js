@@ -5,15 +5,19 @@ describe('getProfileThunk', () => {
   let mockUrl
   let mockDispatch
   let mockProfile
+  let mockUser
 
   beforeEach(() => {
     mockUrl = 'https://my-health-tracker.herokuapp.com/api/v1/profile'
     mockDispatch = jest.fn()
-mockProfile = [{blood: 'A+', height: '5,7', weight: '170', bps: '120', bpd: '80', hr: '60' }]
+    mockProfile = [{blood: 'A+', height: '5,7', weight: '170', bps: '120', bpd: '80', hr: '60' }]
+    mockUser={id: 1, attributes: {
+      api_key: '123'
+    }}
   })
 
   it('calls dispatch with the isLoading action with true value prior to the fetch call', () => {
-    const thunk = getProfileThunk(mockUrl)
+    const thunk = getProfileThunk(mockUrl, mockUser)
     thunk(mockDispatch)
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(true))
   })
@@ -23,7 +27,7 @@ mockProfile = [{blood: 'A+', height: '5,7', weight: '170', bps: '120', bpd: '80'
           ok: false,
           statusText: 'did not work'
       }))
-    const thunk = getProfileThunk(mockUrl)
+    const thunk = getProfileThunk(mockUrl, mockUser)
     await thunk(mockDispatch)
     expect(mockDispatch).toHaveBeenCalledWith(hasErrored('did not work'))
   })
@@ -33,7 +37,7 @@ mockProfile = [{blood: 'A+', height: '5,7', weight: '170', bps: '120', bpd: '80'
       Promise.resolve({
         ok: true
       }))
-    const thunk = getProfileThunk(mockUrl)
+    const thunk = getProfileThunk(mockUrl, mockUser)
     await thunk(mockDispatch)
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(false))
   })
@@ -46,7 +50,7 @@ mockProfile = [{blood: 'A+', height: '5,7', weight: '170', bps: '120', bpd: '80'
         data: mockProfile
       })
     }))
-    const thunk = getProfileThunk(mockUrl)
+    const thunk = getProfileThunk(mockUrl, mockUser)
     await thunk(mockDispatch)
     expect(mockDispatch).toHaveBeenCalledWith(getProfile(mockProfile))
   })
