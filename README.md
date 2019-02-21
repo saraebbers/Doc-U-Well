@@ -54,15 +54,15 @@ To run the tests run:
 ![Wireframes](/src/assets/wireframes.png)
 
 ### Final App Images
-![Log In](/src/assets/Login.png)
-![Profile Form](/src/assets/ProfileForm.png)
-![Profile](/src/assets/Profile.png)
-![Appointment Form](/src/assets/AppointmentForm.png)
-![Appointment](/src/assets/Appointments.png)
-![Provider Form](/src/assets/ProviderForm.png)
-![Provider](/src/assets/Providers.png)
-![Insurance Form](/src/assets/InsuranceForm.png)
-![Insurance](/src/assets/Insurance.png)
+<img src="/src/assets/Login.png" width="200">
+<img src="/src/assets/ProfileForm.png" width="200">
+<img src="/src/assets/Profile.png" width="200">
+<img src="/src/assets/AppointmentForm.png" width="200">
+<img src="/src/assets/Appointments.png" width="200">
+<img src="/src/assets/ProviderForm.png" width="200">
+<img src="/src/assets/Providers.png" width="200">
+<img src="/src/assets/InsuranceForm.png" width="200">
+<img src="/src/assets/Insurance.png" width="200">
 
 ## Known Issues
 * Delete and Edit functionality is planned for our next sprint.
