@@ -14,6 +14,17 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0"
   },
+  "jest": {
+    "collectCoverageFrom": [
+      "!/node_modules/",
+      "!src/index.js",
+      "!src/serviceWorker.js",
+      "!src/reducers/index",
+      "!src/utils/apiKey.js",
+      "src/**/*.{js,jsx}"
+    ]
+  }, 
+
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
