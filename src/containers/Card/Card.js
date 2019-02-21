@@ -63,12 +63,18 @@ class Card extends Component {
           </div>
         )
       case 'providers' :
-        const { specialty, given_name, surname, street_address, city, state, zip, phone  } = this.props.attributes
-        const specialtyType = specialty.toUpperCase()
+        const { speciality, given_name, surname, street_address, city, state, zip, phone  } = this.props.attributes
+        let specialityType
+
+        if(speciality) {
+         specialityType = speciality.toUpperCase()
+       } else {
+         specialityType = ''
+       }
         
         return(
             <div className='card-container'>
-            <h3> {specialtyType} PROVIDER </h3>
+            <h3> {specialityType} PROVIDER </h3>
             <i className="fas fa-trash-alt"></i>
             <h4> { given_name } { surname }</h4>
             <p>{ street_address } { city } { state } { zip }</p>
