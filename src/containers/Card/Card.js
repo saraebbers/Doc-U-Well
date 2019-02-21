@@ -3,7 +3,7 @@ import '../../index.scss';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-class Card extends Component {
+export class Card extends Component {
 
   render() {
 
@@ -23,7 +23,7 @@ class Card extends Component {
         const birthDate = new Date(dob).toLocaleString('en-US', dobOptions)
 
         return(
-          <div className='card-container'>
+          <div className='card-container profiletype'>
             <h3> { profileName }</h3>
             <h4> DOB: { birthDate }</h4>
             <p>Blood type: { blood_type } </p>
@@ -50,7 +50,7 @@ class Card extends Component {
         const providerName = `${ currentProvider.attributes.given_name } ${ currentProvider.attributes.surname }`.toUpperCase()
 
         return(
-          <div className='card-container'>
+          <div className='card-container appointmentstype'>
             <i className="fas fa-trash-alt"></i>
             <h3> APPOINTMENT WITH</h3>
             <h3> {providerName} </h3>
@@ -72,7 +72,7 @@ class Card extends Component {
        }
         
         return(
-            <div className='card-container'>
+            <div className='card-container providerstype'>
             <h3> {specialityType} PROVIDER </h3>
             <i className="fas fa-trash-alt"></i>
             <h4> { given_name } { surname }</h4>
@@ -90,7 +90,7 @@ class Card extends Component {
           insuranceType = 'not entered'
         }
         return(
-          <div className='card-container'>
+          <div className='card-container insurancetype'>
             <i className="fas fa-trash-alt"></i>
             <h3> { insuranceType } CARD</h3>
             <h4> { carrier } Policy Number: { id_number } </h4>
@@ -101,7 +101,7 @@ class Card extends Component {
       case 'other' :
         const { message } = this.props
         return (
-          <div className='card-container'>
+          <div className='card-container othertype'>
             <p> { message} </p>
           </div>
           )
@@ -111,11 +111,11 @@ class Card extends Component {
   }
 }
 
-Card.propTypes = {
-  name: PropTypes.string
-}
+// Card.propTypes = {
+//   name: PropTypes.string
+// }
 
-const mapStateToProps = (state) => {
+export const mapStateToProps = (state) => {
   return {
     appointments: state.appointments,
     providers: state.providers,
