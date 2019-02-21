@@ -1,7 +1,7 @@
 import { isLoading, hasErrored, addAppointments } from '../../actions/index';
 import { addAppointmentThunk } from './postAppointmentThunk.js';
 
-describe('postAppointmentThunk', () => {
+describe('addAppointmentThunk', () => {
   let mockUrl
   let mockDispatch
   let mockAppointment
