@@ -1,4 +1,4 @@
-import { isLoading, hasErrored, postUser } from '../../actions/index';
+import { isLoading, hasErrored, loginUser } from '../../actions/index';
 import { postUserThunk } from './postUserThunk.js';
 
 describe('postUserThunk', () => {
@@ -13,7 +13,7 @@ describe('postUserThunk', () => {
   })
 
   it('calls dispatch with the isLoading action with true value prior to the fetch call', () => {
-    const thunk = postUserThunk(mockUrl)
+    const thunk = postUserThunk(mockUrl, mockUser)
     thunk(mockDispatch)
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(true))
   })
@@ -23,7 +23,7 @@ describe('postUserThunk', () => {
           ok: false,
           statusText: 'did not work'
       }))
-    const thunk = postUserThunk(mockUrl)
+    const thunk = postUserThunk(mockUrl, mockUser)
     await thunk(mockDispatch)
     expect(mockDispatch).toHaveBeenCalledWith(hasErrored('did not work'))
   })
@@ -33,12 +33,12 @@ describe('postUserThunk', () => {
       Promise.resolve({
         ok: true
       }))
-    const thunk = postUserThunk(mockUrl)
+    const thunk = postUserThunk(mockUrl, mockUser)
     await thunk(mockDispatch)
     expect(mockDispatch).toHaveBeenCalledWith(isLoading(false))
   })
 
-    it('should dispatch postUser action', async () => {
+    it('should dispatch loginUser action', async () => {
     window.fetch = jest.fn().mockImplementation(() =>
     Promise.resolve({
       ok: true,
@@ -46,9 +46,9 @@ describe('postUserThunk', () => {
         data: mockUser
       })
     }))
-    const thunk = postUserThunk(mockUrl)
+    const thunk = postUserThunk(mockUrl, mockUser)
     await thunk(mockDispatch)
-    expect(mockDispatch).toHaveBeenCalledWith(postUser(mockUser))
+    expect(mockDispatch).toHaveBeenCalledWith(loginUser(mockUser))
   })
 
 })

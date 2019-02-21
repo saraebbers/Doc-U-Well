@@ -2,9 +2,6 @@ import { isLoading, hasErrored, addInsurance } from '../../actions/index'
 
 
 export const addInsuranceThunk = (user, payload) => {
-  console.log('user', user)
-  console.log('payload', payload)
-
   let url = 'https://my-health-tracker.herokuapp.com/api/v1/insurances'
   return async (dispatch) => {
     try {

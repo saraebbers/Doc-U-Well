@@ -2,7 +2,6 @@ import { isLoading, hasErrored, loginUser } from '../../actions/index'
 
 
 export const getUserThunk = (url, oldUser) => {
-  console.log(oldUser)
   return async (dispatch) => {
     try {
       dispatch(isLoading(true))
