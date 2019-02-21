@@ -6,8 +6,6 @@ import { postUserThunk } from '../../thunks/userThunk/postUserThunk'
 import { getUserThunk } from '../../thunks/userThunk/getUserThunk'
 import { logoutUser, clearAppointments, clearInsurance, clearProfile } from '../../actions/index'
 
-
-
 export class Home extends Component {
   constructor(){
     super()

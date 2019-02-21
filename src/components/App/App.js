@@ -4,8 +4,6 @@ import '../../index.scss';
 import Home from '../../containers/Home/Home';
 import Display from '../../containers/Display/Display';
 
-
-
 class App extends Component {
 
   render() {

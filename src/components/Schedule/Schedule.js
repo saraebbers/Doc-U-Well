@@ -449,7 +449,6 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-
 Schedule.propTypes = {
   type: PropTypes.string
 }

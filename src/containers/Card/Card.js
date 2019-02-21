@@ -3,7 +3,6 @@ import '../../index.scss';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-
 class Card extends Component {
 
   render() {
