@@ -21,4 +21,14 @@ describe('appointmentReducer', () => {
     const result = appointmentReducer(state, {type: 'ADD_APPOINTMENT', appointmentDetails})
     expect(result).toEqual([...state, appointmentDetails])
   })
+
+  it('should return the new state of an empty array when the action.type matches CLEAR_APPOINTMENTS', () =>{
+    const state = [{
+      date: '1-2-19',
+      time: '4pm',
+    }]
+    const result = appointmentReducer(state, {type: 'CLEAR_APPOINTMENTS', appointmentDetails})
+    expect(result).toEqual([])
+  })
+
 })
