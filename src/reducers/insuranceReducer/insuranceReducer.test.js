@@ -21,4 +21,27 @@ describe('insuranceReducer', () => {
     const result = insuranceReducer(state, {type: 'ADD_INSURANCE', insuranceDetails})
     expect(result).toEqual([...state, insuranceDetails])
   })
+
+  it('should return the new state value of insurance if the action.type matches GET_INSURANCE', () =>{
+    const insuranceDetails = [{
+      insurance_type: 'medical',
+      carrier: 'Aetna',
+    }]
+    const state = [{
+      insurance_type: 'vision',
+      carrier: 'Aetna',
+    }]
+    const result = insuranceReducer(state, {type: 'GET_INSURANCE', insuranceDetails})
+    expect(result).toEqual([...state, ...insuranceDetails])
+  })
+
+  it('should return the new state value of insurance if the action.type matches CLEAR_INSURANCE', () =>{
+    const insuranceDetails = { }
+    const state = [{
+      insurance_type: 'vision',
+      carrier: 'Aetna',
+    }]
+    const result = insuranceReducer(state, {type: 'CLEAR_INSURANCE', insuranceDetails})
+    expect(result).toEqual([])
+  })
 })
