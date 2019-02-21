@@ -9,7 +9,7 @@ describe('providersReducer', () => {
     expect(result).toEqual(expected)
   })
 
-  it('should return the new state value of providers if the action.type matches ADD_PROVIDERS', () =>{
+  it('should return the new state value of providers if the action.type matches ADD_PROVIDER', () =>{
     const providerDetails = {
       city: 'Hollywood',
       zip: '12345',
@@ -21,4 +21,18 @@ describe('providersReducer', () => {
     const result = providersReducer(state, {type: 'ADD_PROVIDER', providerDetails})
     expect(result).toEqual([...state, providerDetails])
   })
+
+  it('should return the new state value of providers if the action.type matches GET_PROVIDERS', () =>{
+    const providerDetails = [{
+      city: 'Hollywood',
+      zip: '12345',
+    }]
+    const state = [{
+      city: 'Santa Monica',
+      zip: '12121',
+    }]
+    const result = providersReducer(state, {type: 'GET_PROVIDERS', providerDetails})
+    expect(result).toEqual([...state, ...providerDetails])
+  })
+
 })
