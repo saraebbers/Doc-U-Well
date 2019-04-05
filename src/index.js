@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM, { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import rootReducer from '../src/reducers/index'
 import { BrowserRouter } from 'react-router-dom';
