@@ -9,7 +9,7 @@ import { getAllProvidersThunk } from '../../thunks/providerThunk/getProvidersThu
 import { getAllInsuranceThunk } from '../../thunks/insuranceThunk/getInsuranceThunk'
 import { getProfileThunk } from '../../thunks/profileThunk/getProfileThunk'
 
-class Display extends Component {
+export class Display extends Component {
   constructor() {
     super()
     this.state = {
